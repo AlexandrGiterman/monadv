@@ -350,7 +350,7 @@ export default async function render(el, { cdn, store } = {}){
     if(_claims.length) sections.push('ПРОШУ СУД:\\n' + _claims.join('\\n'));
     if(_ev.length)     sections.push('ДОКАЗАТЕЛЬСТВА:\\n' + _ev.join('\\n'));
     if(_att.length)    sections.push('ПРИЛОЖЕНИЯ:\\n' + _att.join('\\n'));
-    sections.push(`\\nДата: ${d}.${m}.${y}   Подпись: ____________`);
+    sections.push(`\nДата: ${d}.${m}.${y}   Подпись: ____________`);
 
     out.textContent = head + '\\n\\n' + sections.join('\\n\\n');
     out.scrollIntoView({behavior:'smooth', block:'center'});
@@ -405,7 +405,7 @@ export default async function render(el, { cdn, store } = {}){
       sections.push('ПРИЛОЖЕНИЯ:\\n' + norm);
     }
     const dt = new Date(), d = String(dt.getDate()).padStart(2,'0'), m = String(dt.getMonth()+1).padStart(2,'0'), y = dt.getFullYear();
-    sections.push(\`\\nДата: \${d}.\${m}.\${y}   Подпись: ____________\`);
+   sections.push(`\nДата: ${d}.${m}.${y}   Подпись: ____________`);
 
     $('#printBody').textContent = sections.join('\\n\\n');
 
