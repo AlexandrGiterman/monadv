@@ -1,65 +1,222 @@
-// Калькулятор доказательств v1.0.4 — веса и итоговая убедительность
-export default async function render(el, { cdn, store }) {
-  const EVID = [
-    { k: 'contract', name: 'Договор/заказ-наряд', w: 20 },
-    { k: 'acts', name: 'Акты/накладные/счета', w: 18 },
-    { k: 'payments', name: 'Оплата (платежки, БВУ, чеки)', w: 16 },
-    { k: 'correspondence', name: 'Переписка (email/мессенджеры)', w: 10 },
-    { k: 'expert', name: 'Экспертиза/оценка', w: 16 },
-    { k: 'witness', name: 'Показания свидетелей', w: 8 },
-    { k: 'photo', name: 'Фото/видео/скриншоты', w: 6 },
-    { k: 'other', name: 'Иные письменные/вещественные', w: 6 }
-  ];
-  const saved = JSON.parse(store.getItem('monadv.evidence.sel')||'[]');
+// modules/evidence.js — Доказательства (AK GITTER MANN)
+// Светлая карточная тема, автосохранение, печать и экспорт текста.
+
+export default async function render(el, { cdn, store } = {}){
+  const $  = (sel,root=el)=> root.querySelector(sel);
+  const $$ = (sel,root=el)=> Array.from(root.querySelectorAll(sel));
+  const S  = (k,v)=> v===undefined ? (store?.getItem(k)||'') : store?.setItem(k,v);
+  const K  = (id)=> `monadv.ev.${id}`;
+
   el.innerHTML = `
-    <div class="monadv-ev">
-      <h2 style="margin:0 0 .5rem">Калькулятор доказательств</h2>
-      <p class="muted">Отметьте, что уже есть, и получите «уровень убедительности» и рекомендации.</p>
-      <div class="grid"></div>
-      <div class="sum" style="margin-top:.75rem;font-weight:700"></div>
-      <div class="rec" style="margin-top:.25rem;color:#6b7280"></div>
-      <div style="margin-top:.5rem">
-        <button id="copyBtn">Скопировать итог</button>
-        <button id="clearBtn" class="secondary">Сбросить</button>
+  <style>
+    .ev{
+      --bg:#F8FAFC; --card:#FFFFFF; --muted:#6B7280; --text:#111827;
+      --accent:#B08250; --ok:#22C55E; --danger:#EF4444;
+      --radius:18px; --border:1px solid rgba(0,0,0,.10); --input:#FFFFFF;
+      display:grid; gap:12px;
+    }
+    .ev .row{display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:end}
+    .ev .row-3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; align-items:end}
+    .ev .box{background:var(--card); border:var(--border); border-radius:var(--radius); padding:12px}
+    .ev label{display:block; font-size:13px; color:var(--muted)}
+    .ev select,.ev input,.ev textarea{width:100%; background:var(--input); color:var(--text); border:var(--border); border-radius:12px; padding:10px 12px; outline:none}
+    .ev textarea{min-height:100px; resize:vertical}
+    .ev .actions{display:flex; gap:10px; flex-wrap:wrap}
+    .ev button{background:var(--accent); border:none; color:#111; border-radius:12px; padding:10px 14px; font-weight:800; cursor:pointer}
+    .ev button.secondary{background:transparent; color:var(--text); border:1px solid rgba(0,0,0,.18)}
+    .ev table{width:100%; border-collapse:collapse; font-size:14px}
+    .ev th,.ev td{border:1px solid rgba(0,0,0,.1); padding:8px; vertical-align:top; background:#fff}
+    .ev th{background:#f3f4f6; font-weight:600}
+    .ev .mono{white-space:pre-wrap; font-family:ui-monospace,Menlo,Consolas,monospace}
+    @media (max-width:900px){ .ev .row,.ev .row-3{grid-template-columns:1fr} table{display:block; overflow:auto} }
+    /* Печать */
+    @media print{
+      .ev .box, .ev .actions{display:none}
+      .print-sheet{display:block!important; color:#000; font:12pt/1.3 "Times New Roman",Times,serif; margin:0 auto; max-width:210mm; padding:15mm}
+      .print-title{font-weight:700; text-align:center; margin:0 0 10px}
+      .print-body{white-space:pre-wrap}
+    }
+  </style>
+
+  <div class="ev">
+    <div class="box">
+      <div class="row-3">
+        <div>
+          <label>Дело / номер</label>
+          <input id="case" placeholder="№, суд, стороны"/>
+        </div>
+        <div>
+          <label>Сторона</label>
+          <select id="side">
+            <option>Истец</option>
+            <option>Ответчик</option>
+          </select>
+        </div>
+        <div>
+          <label>Куратор (адвокат)</label>
+          <input id="curator" placeholder="ФИО адвоката"/>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="add">Добавить доказательство</button>
+        <button id="export" class="secondary">Экспорт текста</button>
+        <button id="print" class="secondary">Печать</button>
       </div>
     </div>
-    <style>
-      .monadv-ev .grid{display:grid;grid-template-columns:repeat(2,minmax(200px,1fr));gap:.5rem}
-      @media (max-width:640px){.monadv-ev .grid{grid-template-columns:1fr}}
-      .monadv-ev label{display:flex;align-items:center;gap:.5rem;border:1px solid rgba(0,0,0,.1);border-radius:12px;padding:.6rem .8rem;background:#fff}
-      .monadv-ev input[type=checkbox]{transform:scale(1.1)}
-      .secondary{background:transparent;border:1px solid rgba(0,0,0,.2);border-radius:12px;padding:.5rem .8rem;cursor:pointer}
-    </style>
-  `;
-  const grid = el.querySelector('.grid');
-  EVID.forEach(it=>{
-    const row = document.createElement('label');
-    row.innerHTML = `<input type="checkbox" data-k="${it.k}"> <span>${it.name}</span> <small style="margin-left:auto;color:#6b7280">${it.w} баллов</small>`;
-    const cb = row.querySelector('input'); cb.checked = saved.includes(it.k);
-    cb.addEventListener('change', refresh);
-    grid.appendChild(row);
-  });
-  const sumEl = el.querySelector('.sum'), recEl = el.querySelector('.rec');
 
-  function refresh(){
-    const cbs = [...grid.querySelectorAll('input[type=checkbox]')];
-    const sel = cbs.filter(x=>x.checked).map(x=>x.dataset.k);
-    store.setItem('monadv.evidence.sel', JSON.stringify(sel));
-    const score = sel.reduce((acc,k)=> acc + (EVID.find(x=>x.k===k)?.w||0), 0);
-    const pct = Math.min(100, Math.round(score)); // шкала 0..100
-    sumEl.textContent = `Итоговая убедительность: ${pct}%`;
-    let tip = 'Рекомендуется собрать ключевые документы: договор, акты, оплату.';
-    if(pct >= 75) tip = 'Доказательства сильные; уточните детали (даты, объемы, экспертизу).';
-    else if(pct >= 50) tip = 'Средний уровень: добавьте официальные документы (оплата/акты) и экспертизу.';
-    else if(pct >= 25) tip = 'Низкий уровень: сосредоточьтесь на договоре/актах/платежах, зафиксируйте переписку.';
-    recEl.textContent = tip;
+    <div class="box">
+      <table id="tbl">
+        <thead>
+          <tr>
+            <th style="width:38px">#</th>
+            <th>Наименование и реквизиты</th>
+            <th style="width:130px">Категория</th>
+            <th style="width:130px">Относимость</th>
+            <th style="width:130px">Допустимость</th>
+            <th style="width:130px">Достоверность</th>
+            <th style="width:130px">Оценка (0–10)</th>
+            <th style="width:48px">×</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="actions" style="justify-content:space-between">
+        <div class="mono" id="sum">Итоговая оценка: 0 / 10</div>
+        <div>
+          <button id="clear" class="secondary">Очистить всё</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Печать -->
+    <div id="printArea" class="print-sheet" style="display:none">
+      <div class="print-title">ВЕДОМОСТЬ ДОКАЗАТЕЛЬСТВ</div>
+      <div class="print-body" id="printBody"></div>
+    </div>
+  </div>
+  `;
+
+  const ids = ['case','side','curator'];
+  const [caseEl, sideEl, curatorEl] = ids.map(id => el.querySelector('#'+id));
+  ids.forEach(id => { const v=S(K(id)); if(v) el.querySelector('#'+id).value=v; el.querySelector('#'+id).addEventListener('input', e=>S(K(id), e.target.value||'')); });
+
+  const tbody = $('#tbl tbody'); const sumEl = $('#sum');
+
+  function rowTpl(i, data={}){
+    const d = Object.assign({name:'',cat:'Письменное',rel:'Да',adm:'Да',cred:'Высокая',score:'0'}, data);
+    return `<tr>
+      <td>${i+1}</td>
+      <td><textarea data-key="name" placeholder="Договор №..., переписка, акт, заключение эксперта...">${d.name||''}</textarea></td>
+      <td>
+        <select data-key="cat">
+          ${['Письменное','Вещественное','Электронное','Показания','Заключение эксперта','Иное'].map(v=>`<option ${v===d.cat?'selected':''}>${v}</option>`).join('')}
+        </select>
+      </td>
+      <td>
+        <select data-key="rel">
+          ${['Да','Частично','Нет','Н/Д'].map(v=>`<option ${v===d.rel?'selected':''}>${v}</option>`).join('')}
+        </select>
+      </td>
+      <td>
+        <select data-key="adm">
+          ${['Да','Частично','Нет','Н/Д'].map(v=>`<option ${v===d.adm?'selected':''}>${v}</option>`).join('')}
+        </select>
+      </td>
+      <td>
+        <select data-key="cred">
+          ${['Высокая','Средняя','Низкая','Н/Д'].map(v=>`<option ${v===d.cred?'selected':''}>${v}</option>`).join('')}
+        </select>
+      </td>
+      <td><input data-key="score" type="number" min="0" max="10" step="1" value="${d.score||0}"/></td>
+      <td><button class="secondary" data-del>×</button></td>
+    </tr>`;
   }
-  el.querySelector('#copyBtn').addEventListener('click', ()=>{
-    const text = `${sumEl.textContent}\n${recEl.textContent}`;
-    navigator.clipboard.writeText(text);
+
+  function readAll(){
+    return $$('#tbl tbody tr').map(tr=>{
+      const obj = {};
+      $$('textarea,select,input', tr).forEach(inp=> obj[inp.dataset.key] = inp.value);
+      return obj;
+    });
+  }
+
+  function calcSum(rows){
+    // простая агрегированная оценка по шкале 0–10: среднее по score
+    const nums = rows.map(r=> Number(r.score)).filter(n=> Number.isFinite(n));
+    const avg = nums.length ? (nums.reduce((a,b)=>a+b,0)/nums.length) : 0;
+    return Math.round(avg * 10)/10;
+  }
+
+  function save(){
+    const data = JSON.stringify(readAll());
+    S(K('rows'), data);
+    sumEl.textContent = 'Итоговая оценка: ' + calcSum(JSON.parse(data||'[]')) + ' / 10';
+  }
+
+  function restore(){
+    const raw = S(K('rows'));
+    const list = raw ? JSON.parse(raw) : [];
+    tbody.innerHTML = list.map((r,i)=>rowTpl(i,r)).join('') || rowTpl(0,{});
+    bind();
+    save();
+  }
+
+  function bind(){
+    $$('#tbl tbody tr').forEach(tr=>{
+      $$('textarea,select,input', tr).forEach(inp=> inp.addEventListener('input', save));
+      $('[data-del]', tr).addEventListener('click', ()=>{ tr.remove(); renumber(); save(); });
+    });
+  }
+
+  function renumber(){
+    $$('#tbl tbody tr').forEach((tr,i)=> tr.firstElementChild.textContent = String(i+1));
+    if(!$('#tbl tbody tr')) tbody.innerHTML = rowTpl(0,{}), bind();
+  }
+
+  $('#add').addEventListener('click', ()=>{
+    const i = $$('#tbl tbody tr').length;
+    const tmp = document.createElement('tbody');
+    tmp.innerHTML = rowTpl(i,{});
+    tbody.appendChild(tmp.firstElementChild);
+    bind(); save();
   });
-  el.querySelector('#clearBtn').addEventListener('click', ()=>{
-    store.removeItem('monadv.evidence.sel'); [...grid.querySelectorAll('input')].forEach(i=>i.checked=false); refresh();
+
+  $('#clear').addEventListener('click', ()=>{
+    if(!confirm('Удалить все строки?')) return;
+    S(K('rows'), '[]'); restore();
   });
-  refresh();
+
+  $('#export').addEventListener('click', ()=>{
+    const rows = readAll();
+    const head = [
+      caseEl.value ? ('Дело: ' + caseEl.value) : '',
+      'Сторона: ' + (sideEl.value||'—'),
+      curatorEl.value ? ('Куратор: ' + curatorEl.value) : ''
+    ].filter(Boolean).join('\n');
+    const body = rows.map((r,i)=> `${i+1}) ${r.name}\n   Категория: ${r.cat}; Относимость: ${r.rel}; Допустимость: ${r.adm}; Достоверность: ${r.cred}; Оценка: ${r.score}`).join('\n\n');
+    const text = (head ? head + '\n\n' : '') + body;
+    navigator.clipboard.writeText(text).then(()=>{
+      alert('Экспортировано в буфер обмена');
+    },()=> alert('Скопируйте вручную'));
+  });
+
+  // Печать
+  $('#print').addEventListener('click', ()=>{
+    const rows = readAll();
+    const head = [
+      caseEl.value ? ('Дело: ' + caseEl.value) : '',
+      'Сторона: ' + (sideEl.value||'—'),
+      curatorEl.value ? ('Куратор: ' + curatorEl.value) : ''
+    ].filter(Boolean).join('\n');
+    const body = rows.map((r,i)=> `${i+1}) ${r.name}\n   Категория: ${r.cat}; Относимость: ${r.rel}; Допустимость: ${r.adm}; Достоверность: ${r.cred}; Оценка: ${r.score}`).join('\n\n');
+    const text = (head ? head + '\n\n' : '') + body + `\n\nИтоговая оценка: ${calcSum(rows)} / 10`;
+
+    const sheet = $('#printArea'); const prev = sheet.style.display;
+    $('#printBody').textContent = text;
+    sheet.style.display='block';
+    window.print();
+    sheet.style.display = prev || 'none';
+  });
+
+  restore();
 }
