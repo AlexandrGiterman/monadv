@@ -1,23 +1,39 @@
 export default async function render(el, { cdn, store }) {
   el.innerHTML = `
-    <div class="monadv-box">
+    <div class="monadv-fee">
       <h2 style="margin:0 0 .5rem">Калькулятор госпошлины</h2>
-      <p>Отметьте, какие доказательства у вас есть:</p>
-      <label><input type="checkbox" data-k="contract"> Договор</label><br>
-      <label><input type="checkbox" data-k="acts"> Акты выполненных работ</label><br>
-      <label><input type="checkbox" data-k="correspondence"> Переписка</label><br>
-      <div id="out" style="margin-top:.75rem"></div>
+      <label>Цена иска, тг<br><input id="price" type="number" min="0" step="1" style="width:220px"></label><br>
+      <label>Категория:<br>
+        <select id="cat" style="width:220px">
+          <option value="property">Имущественный иск</option>
+          <option value="nonprop">Неимущественный</option>
+        </select>
+      </label>
+      <div id="res" style="margin-top:.75rem"></div>
     </div>
   `;
-  const out = el.querySelector('#out');
-  const boxes = [...el.querySelectorAll('input[type="checkbox"]')];
-  const saved = JSON.parse(store.getItem('monadv.evidence')||'[]');
-  boxes.forEach(b => b.checked = saved.includes(b.dataset.k));
-  const refresh = () => {
-    const sel = boxes.filter(b=>b.checked).map(b=>b.dataset.k);
-    store.setItem('monadv.evidence', JSON.stringify(sel));
-    out.textContent = sel.length ? `Выбрано доказательств: ${sel.length}` : 'Выберите пункты выше';
-  };
-  boxes.forEach(b => b.addEventListener('change', refresh));
-  refresh();
+  const price = el.querySelector('#price');
+  const cat = el.querySelector('#cat');
+  const res = el.querySelector('#res');
+
+  function calc(){
+    const v = Math.max(0, Number(price.value||0));
+    let duty = 0;
+    if(cat.value === 'property'){
+      // Пример формулы (заглушка): 1% от цены, но не менее 1 МРП
+      duty = Math.max(v * 0.01, 1 * 3692); // 3692 тг — пример МРП (замените актуальным)
+    }else{
+      duty = 1 * 3692; // неимущественный — фиксированный МРП (пример)
+    }
+    res.textContent = 'Госпошлина: ' + Math.round(duty).toLocaleString('ru-RU') + ' тг';
+  }
+
+  [price, cat].forEach(c=>c.addEventListener('input', calc));
+  price.value = store.getItem('monadv.state_duty.price')||'';
+  cat.value = store.getItem('monadv.state_duty.cat')||'property';
+  [price, cat].forEach(c=>c.addEventListener('change', ()=>{
+    store.setItem('monadv.state_duty.price', price.value);
+    store.setItem('monadv.state_duty.cat', cat.value);
+  }));
+  calc();
 }
