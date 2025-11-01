@@ -72,8 +72,43 @@ export default async function render(el, { cdn, store }) {
         </div>
       </div>
 
+      <!-- Поля для полного конструктора (сворачиваемый блок) -->
+      <div class="box" id="fullBlock">
+        <div class="row">
+          <label class="col" style="flex:1 1 100%">Обстоятельства дела (кратко)<br>
+            <textarea id="facts" placeholder="Когда, где, что произошло; ссылки на документы и участников"></textarea>
+          </label>
+        </div>
+        <div class="row">
+          <label class="col" style="flex:1 1 100%">Правовое обоснование (нормы права)<br>
+            <textarea id="law" placeholder="Например: ст. 9, 917 ГК РК; нормы ГПК РК о подсудности и доказательствах"></textarea>
+          </label>
+        </div>
+        <div class="row">
+          <label class="col" style="flex:1 1 100%">Подсудность (мотивировка, если нужна)<br>
+            <textarea id="juris" placeholder="Почему выбран данный суд (территориальная, родовая подсудность)"></textarea>
+          </label>
+        </div>
+        <div class="row">
+          <label class="col" style="flex:1 1 100%">Требования (просительная часть — по пунктам)<br>
+            <textarea id="claimsList" placeholder="1) Взыскать ...; 2) Обязать ...; 3) Вынести частное определение ..."></textarea>
+          </label>
+        </div>
+        <div class="row">
+          <label class="col" style="flex:1 1 100%">Доказательства (по пунктам)<br>
+            <textarea id="evidence" placeholder="1) Договор №... от ...; 2) Переписка; 3) Заключение эксперта ..."></textarea>
+          </label>
+        </div>
+        <div class="row">
+          <label class="col" style="flex:1 1 100%">Приложения (копии по числу участников)<br>
+            <textarea id="attachments" placeholder="Квитанция об уплате госпошлины; копия иска; доверенность ..."></textarea>
+          </label>
+        </div>
+      </div>
+
       <div class="row">
         <button id="gen">Сформировать «шапку»</button>
+        <button id="genFull">Сформировать полный текст</button>
         <button id="copy">Копировать</button>
         <button id="print">Печать</button>
       </div>
@@ -181,7 +216,83 @@ export default async function render(el, { cdn, store }) {
     window.scrollTo({top: out.getBoundingClientRect().top + window.scrollY - 16, behavior:'smooth'});
   }
 
+
+  // Автосохранение расширенных полей
+  const facts = $('#facts'), law = $('#law'), jurisM = $('#juris'),
+        claimsList = $('#claimsList'), evidence = $('#evidence'), attachments = $('#attachments');
+  [facts, law, jurisM, claimsList, evidence, attachments].forEach(inp=>{
+    if(!inp) return;
+    const key = 'monadv.j.' + inp.id;
+    const val = store.getItem(key) || '';
+    if(val) inp.value = val;
+    inp.addEventListener('input', ()=> store.setItem(key, inp.value||''));
+  });
+
+  function toList(text){
+    const arr = (text||'').split(/\n+/).map(s=>s.trim()).filter(Boolean);
+    return arr.length ? arr.map((s,i)=> (s.match(/^\d+[).]/)? s : (i+1)+') '+s)) : [];
+  }
+
+  function genFull(){
+    // Сначала шапка (как текст), затем тело
+    genHeader(); // заполняет out.textContent
+    const head = out.textContent || '';
+
+    const dt = new Date();
+    const d = String(dt.getDate()).padStart(2,'0');
+    const m = String(dt.getMonth()+1).padStart(2,'0');
+    const y = dt.getFullYear();
+
+    const _facts = (facts && facts.value || '').trim();
+    const _law = (law && law.value || '').trim();
+    const _jur = (jurisM && jurisM.value || '').trim();
+    const _claims = toList(claimsList && claimsList.value || '');
+    const _ev = toList(evidence && evidence.value || '');
+    const _att = toList(attachments && attachments.value || '');
+
+    const sections = [];
+
+    // Заголовок документа (тип)
+    sections.push(doctype.value.toUpperCase());
+
+    // Описательная часть
+    if(_facts){
+      sections.push('ОБСТОЯТЕЛЬСТВА ДЕЛА:\\n' + _facts);
+    }
+
+    // Правовое обоснование
+    if(_law){
+      sections.push('ПРАВОВОЕ ОБОСНОВАНИЕ:\\n' + _law);
+    }
+
+    // Подсудность (опционально)
+    if(_jur){
+      sections.push('ПОДСУДНОСТЬ:\\n' + _jur);
+    }
+
+    // Просительная часть
+    if(_claims.length){
+      sections.push('ПРОШУ СУД:\\n' + _claims.join('\\n'));
+    }
+
+    // Доказательства
+    if(_ev.length){
+      sections.push('ДОКАЗАТЕЛЬСТВА:\\n' + _ev.join('\\n'));
+    }
+
+    // Приложения
+    if(_att.length){
+      sections.push('ПРИЛОЖЕНИЯ:\\n' + _att.join('\\n'));
+    }
+
+    sections.push(`\\nДата: ${d}.${m}.${y}   Подпись: ____________`);
+
+    out.textContent = head + '\\n\\n' + sections.join('\\n\\n');
+    window.scrollTo({top: out.getBoundingClientRect().top + window.scrollY - 16, behavior:'smooth'});
+  }
+
   $('#gen').addEventListener('click', genHeader);
+  $('#genFull').addEventListener('click', genFull);
   $('#copy').addEventListener('click', ()=>{
     navigator.clipboard.writeText(out.textContent||'');
   });
