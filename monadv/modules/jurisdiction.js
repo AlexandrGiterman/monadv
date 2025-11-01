@@ -1,247 +1,330 @@
-// Подсудность + Конструктор иска (v1.0.3)
-// - Автовыбор суда по региону/категории
-// - Генерация "шапки" иска (справа) + копирование/печать
-// - Поддержка цены иска, вычисление госпошлины (та же логика, что в state_duty.js)
-// - Сохранение полей в localStorage
-export default async function render(el, { cdn, store }) {
-  const MRP = Number(localStorage.getItem('monadv.mrp')) || 3932; // МРП-2025, можно менять в state_duty
+// jurisdiction.js — Подсудность + Конструктор иска (AK GITTER MANN)
+// ES-модуль под ваш загрузчик вкладок: export default async function(el, { cdn, store })
+// Визуальный стиль: светлая карточная тема. Печать: шапка справа, заголовок по центру, текст слева.
 
-  // Загружаем справочник судов
-  const courts = await fetch(cdn('data/courts.json')).then(r=>r.json()).catch(()=>({}));
+export default async function render(el, { cdn, store } = {}){
+  // ---------- Helpers ----------
+  const $  = (sel,root=el)=> root.querySelector(sel);
+  const $$ = (sel,root=el)=> Array.from(root.querySelectorAll(sel));
+  const S  = (k,v)=> v===undefined ? (store?.getItem(k)||'') : store?.setItem(k,v);
+  const K  = (id)=> `monadv.j.${id}`;
 
-  // Типы споров → подсудность (примерные правила)
-  const CATS = [
-    {id:'family_children', name:'Дела по детям/семье', hint:'СМИС по делам несовершеннолетних', courtGroup:['Суды по детям','Специализированные']},
-    {id:'civil_common',    name:'Гражданские общие',   hint:'Городской/районный суд', courtGroup:['Городские','Районные']},
-    {id:'economic',        name:'Экономические (хоз.)',hint:'СМИЭС области', courtGroup:['Экономические','Экономический']},
-    {id:'admin',           name:'Административные',    hint:'Административный суд', courtGroup:['Административные']},
-  ];
-
+  // ---------- Template ----------
   el.innerHTML = `
-    <style>
-      .monadv-j{display:grid;gap:12px}
-      .monadv-j .row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
-      .monadv-j .col{min-width:240px}
-      .monadv-j .box{background:#f8fafc;border:1px solid rgba(0,0,0,.1);padding:12px;border-radius:12px}
-      .monadv-j textarea{width:100%;min-height:120px}
-      @media (max-width:640px){.monadv-j .col{flex:1 1 100%}}
-      .right{ text-align:right; white-space:pre-wrap }
-      .muted{ color:#6b7280; font-size:12px }
-    </style>
+  <style>
+    .monadv-j{
+      --bg:#F8FAFC; --card:#FFFFFF; --muted:#6B7280; --text:#111827;
+      --accent:#B08250; --ok:#22C55E; --danger:#EF4444;
+      --radius:18px; --border:1px solid rgba(0,0,0,.10); --input:#FFFFFF;
+      display:grid; gap:12px;
+    }
+    .monadv-j .row{display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:end}
+    .monadv-j .row > .col{min-width:0}
+    @media (max-width:900px){ .monadv-j .row{grid-template-columns:1fr} }
+    .monadv-j .box{background:var(--card); border:var(--border); border-radius:var(--radius); padding:12px}
+    .monadv-j label{display:block; font-size:13px; color:var(--muted)}
+    .monadv-j select,.monadv-j input,.monadv-j textarea{
+      width:100%; background:var(--input); color:var(--text);
+      border:var(--border); border-radius:12px; padding:10px 12px; outline:none;
+    }
+    .monadv-j textarea{min-height:110px; resize:vertical}
+    .monadv-j .muted{color:var(--muted); font-size:12px}
+    .monadv-j .actions{display:flex; gap:10px; flex-wrap:wrap}
+    .monadv-j button{
+      background:var(--accent); border:none; color:#111; border-radius:12px;
+      padding:10px 14px; font-weight:800; cursor:pointer
+    }
+    .monadv-j button.secondary{background:transparent; color:var(--text); border:1px solid rgba(0,0,0,.18)}
+    .monadv-j .right{ white-space:pre-wrap; text-align:right }
 
-    <div class="monadv-j">
+    /* Печать: шапка справа, заголовок по центру, текст слева */
+    @media print{
+      body{background:#fff}
+      .monadv-j{background:#fff; color:#000}
+      .monadv-j .box, .monadv-j .actions{display:none}
+      .print-sheet{display:block!important; color:#000; font:14pt/1.35 "Times New Roman",Times,serif; margin:0 auto; max-width:210mm; padding:20mm}
+      .print-top{display:flex; align-items:flex-start; gap:20px; margin-bottom:14px}
+      .print-left{flex:1 1 60%}
+      .print-right{flex:0 0 40%; margin-left:auto; text-align:right}
+      .print-title{font-weight:700; text-align:center; margin:14px 0 10px}
+      .print-body{white-space:pre-wrap}
+      .print-divider{border-bottom:2px solid #000; margin:8px 0 12px}
+    }
+  </style>
+
+  <div class="monadv-j">
+    <!-- Подсудность -->
+    <div class="box">
       <div class="row">
-        <label class="col">Регион<br>
-          <select id="reg"></select>
-        </label>
-        <label class="col">Категория спора<br>
-          <select id="cat"></select>
-          <div class="muted" id="catHint"></div>
-        </label>
-        <label class="col">Суд<br>
-          <select id="court"></select>
-        </label>
-      </div>
-
-      <div class="row box">
-        <label class="col">Тип документа<br>
-          <select id="doctype">
-            <option>Иск</option><option>Заявление</option>
-            <option>Жалоба</option><option>Ходатайство</option>
+        <div class="col">
+          <label>Регион</label>
+          <select id="region">
+            <option value="">— выберите регион —</option>
           </select>
-        </label>
-        <label class="col">Истец (ФИО/наименование)<br><input id="plaintiff" style="min-width:260px"></label>
-        <label class="col">Ответчик (ФИО/наименование)<br><input id="defendant" style="min-width:260px"></label>
-      </div>
-
-      <div class="row box">
-        <label class="col">Цена иска, тг<br><input id="claim" type="number" min="0" step="1"></label>
-        <label class="col">Кто подаёт<br>
-          <select id="who"><option value="fl">Физлицо</option><option value="yl">Юрлицо</option></select>
-        </label>
-        <label class="col">Госпошлина, тг<br><input id="fee" type="number" min="0" step="1"></label>
-        <button id="calc" class="col" style="height:40px">Рассчитать пошлину</button>
-        <div class="muted">МРП сейчас: <b id="mrpView"></b> тг (меняется в «Госпошлина» → «изменить МРП»)</div>
-      </div>
-
-      <div class="box">
-        <div class="row">
-          <label class="col" style="flex:1 1 100%">Реквизиты суда (при необходимости)<br>
-            <textarea id="courtReq" placeholder="Реквизиты суда для оплаты/почтовые данные"></textarea>
-          </label>
+        </div>
+        <div class="col">
+          <label>Категория суда</label>
+          <select id="category" disabled>
+            <option value="">— выберите категорию —</option>
+          </select>
         </div>
       </div>
-
       <div class="row">
-  <label class="col" style="flex:1 1 100%">О чём заявление (кратко — после «о»)<br>
-    <input id="subject" type="text" placeholder="взыскании суммы долга; расторжении брака; признании права собственности"/>
-  </label>
-</div>
-
-      <!-- Поля для полного конструктора (сворачиваемый блок) -->
-      <div class="box" id="fullBlock">
-        <div class="row">
-          <label class="col" style="flex:1 1 100%">Обстоятельства дела (кратко)<br>
-            <textarea id="facts" placeholder="Когда, где, что произошло; ссылки на документы и участников"></textarea>
-          </label>
+        <div class="col">
+          <label>Суд (из списка)</label>
+          <select id="courtList" disabled>
+            <option value="">— выберите суд —</option>
+          </select>
         </div>
-        <div class="row">
-          <label class="col" style="flex:1 1 100%">Правовое обоснование (нормы права)<br>
-            <textarea id="law" placeholder="Например: ст. 9, 917 ГК РК; нормы ГПК РК о подсудности и доказательствах"></textarea>
-          </label>
-        </div>
-        <div class="row">
-          <label class="col" style="flex:1 1 100%">Подсудность (мотивировка, если нужна)<br>
-            <textarea id="juris" placeholder="Почему выбран данный суд (территориальная, родовая подсудность)"></textarea>
-          </label>
-        </div>
-        <div class="row">
-          <label class="col" style="flex:1 1 100%">Требования (просительная часть — по пунктам)<br>
-            <textarea id="claimsList" placeholder="1) Взыскать ...; 2) Обязать ...; 3) Вынести частное определение ..."></textarea>
-          </label>
-        </div>
-        <div class="row">
-          <label class="col" style="flex:1 1 100%">Доказательства (по пунктам)<br>
-            <textarea id="evidence" placeholder="1) Договор №... от ...; 2) Переписка; 3) Заключение эксперта ..."></textarea>
-          </label>
-        </div>
-        <div class="row">
-          <label class="col" style="flex:1 1 100%">Приложения (копии по числу участников)<br>
-            <textarea id="attachments" placeholder="Квитанция об уплате госпошлины; копия иска; доверенность ..."></textarea>
-          </label>
+        <div class="col">
+          <label>Суд (вручную, если нет в списке)</label>
+          <input id="court" placeholder="например: Специализированный межрайонный суд по делам несовершеннолетних ВКО"/>
         </div>
       </div>
+      <div class="muted">Если суд выбран из списка, он подставится в поле «Суд (вручную)» автоматически — вы можете откорректировать формулировку.</div>
+    </div>
 
+    <!-- Стороны и реквизиты -->
+    <div class="box">
       <div class="row">
+        <div class="col">
+          <label>Истец</label>
+          <input id="plaintiff" placeholder="ФИО / Наименование, адрес, контакты"/>
+        </div>
+        <div class="col">
+          <label>Ответчик</label>
+          <input id="defendant" placeholder="ФИО / Наименование, адрес, контакты"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Цена иска (тг)</label>
+          <input id="claim" type="number" min="0" step="1" placeholder="0"/>
+        </div>
+        <div class="col">
+          <label>Госпошлина (тг)</label>
+          <input id="fee" type="number" min="0" step="1" placeholder="0"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Тип документа</label>
+          <select id="doctype">
+            <option value="Исковое заявление">Иск</option>
+            <option value="Заявление">Заявление</option>
+            <option value="Жалоба">Жалоба</option>
+            <option value="Ходатайство">Ходатайство</option>
+          </select>
+        </div>
+        <div class="col">
+          <label>О чём заявление (после «о»)</label>
+          <input id="subject" placeholder="взыскании суммы долга; расторжении брака; признании права собственности"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Полный конструктор -->
+    <div class="box">
+      <div class="row">
+        <div class="col" style="grid-column:1/-1">
+          <label>Обстоятельства дела</label>
+          <textarea id="facts" placeholder="Когда, где, что произошло; ссылки на документы и участников"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col" style="grid-column:1/-1">
+          <label>Правовое обоснование (нормы права)</label>
+          <textarea id="law" placeholder="Например: ст. 9, 917 ГК РК; нормы ГПК РК о подсудности и доказательствах"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col" style="grid-column:1/-1">
+          <label>Подсудность (мотивировка, при необходимости)</label>
+          <textarea id="juris" placeholder="Почему выбран данный суд (территориальная/родовая подсудность)"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col" style="grid-column:1/-1">
+          <label>Требования (просительная часть — по пунктам)</label>
+          <textarea id="claimsList" placeholder="1) Взыскать ...; 2) Обязать ...; 3) Вынести частное определение ..."></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col" style="grid-column:1/-1">
+          <label>Доказательства (по пунктам)</label>
+          <textarea id="evidence" placeholder="1) Договор №... от ...; 2) Переписка; 3) Заключение эксперта ..."></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col" style="grid-column:1/-1">
+          <label>Приложения (копии по числу участников)</label>
+          <textarea id="attachments" placeholder="Квитанция об уплате госпошлины; копия иска; доверенность ..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Действия и предпросмотр -->
+    <div class="box">
+      <div class="actions">
         <button id="gen">Сформировать «шапку»</button>
         <button id="genFull">Сформировать полный текст</button>
-        <button id="copy">Копировать</button>
-        <button id="print">Печать</button>
+        <button id="copy" class="secondary">Копировать</button>
+        <button id="print" class="secondary">Печать</button>
       </div>
-
-      <div class="box right" id="out"></div>
+      <pre id="out" class="right"></pre>
     </div>
+
+    <!-- Печатный холст -->
+    <div id="printArea" class="print-sheet" style="display:none">
+      <div class="print-top">
+        <div class="print-left"><div id="printCourtLeft" class="line"></div></div>
+        <div class="print-right">
+          <div class="line" id="printPlaintiff"></div>
+          <div class="line" id="printDefendant"></div>
+          <div class="line" id="printPrice"></div>
+          <div class="line" id="printFee"></div>
+        </div>
+      </div>
+      <div class="print-divider"></div>
+      <div class="print-title" id="printTitle">ИСКОВОЕ ЗАЯВЛЕНИЕ</div>
+      <div class="print-body" id="printBody"></div>
+    </div>
+  </div>
   `;
 
-  // DOM helpers
-  const $ = (s)=> el.querySelector(s);
-  const reg=$('#reg'), cat=$('#cat'), court=$('#court'), catHint=$('#catHint');
-  const doctype=$('#doctype'), plaintiff=$('#plaintiff'), defendant=$('#defendant');
-  const claim=$('#claim'), who=$('#who'), fee=$('#fee'), calcBtn=$('#calc'), mrpView=$('#mrpView');
-  const courtReq=$('#courtReq'), out=$('#out');
+  // ---------- Elements ----------
+  const region    = $('#region');
+  const category  = $('#category');
+  const courtList = $('#courtList');
+  const court     = $('#court');
 
-  mrpView.textContent = MRP.toLocaleString('ru-RU');
+  const plaintiff = $('#plaintiff');
+  const defendant = $('#defendant');
+  const claim     = $('#claim');
+  const fee       = $('#fee');
+  const doctype   = $('#doctype');
+  const subject   = $('#subject');
 
-  // Заполняем списки
-  const regions = Object.keys(courts);
-  regions.sort();
-  reg.innerHTML = regions.map(r=>`<option>${r}</option>`).join('');
-  cat.innerHTML = CATS.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
+  const facts     = $('#facts');
+  const law       = $('#law');
+  const juris     = $('#juris');
+  const claimsList= $('#claimsList');
+  const evidence  = $('#evidence');
+  const attachments=$('#attachments');
 
-  // Восстанавливаем состояние
-  reg.value       = store.getItem('monadv.j.reg') || regions[0] || '';
-  cat.value       = store.getItem('monadv.j.cat') || (CATS[0]&&CATS[0].id) || '';
-  doctype.value   = store.getItem('monadv.j.doc') || 'Иск';
-  plaintiff.value = store.getItem('monadv.j.plaintiff') || '';
-  defendant.value = store.getItem('monadv.j.defendant') || '';
-  claim.value     = store.getItem('monadv.j.claim') || '';
-  who.value       = store.getItem('monadv.j.who') || 'fl';
-  fee.value       = store.getItem('monadv.j.fee') || '';
-  courtReq.value  = store.getItem('monadv.j.courtReq') || '';
+  const out       = $('#out');
 
-  function save(){
-    store.setItem('monadv.j.reg', reg.value);
-    store.setItem('monadv.j.cat', cat.value);
-    store.setItem('monadv.j.doc', doctype.value);
-    store.setItem('monadv.j.plaintiff', plaintiff.value);
-    store.setItem('monadv.j.defendant', defendant.value);
-    store.setItem('monadv.j.claim', claim.value);
-    store.setItem('monadv.j.who', who.value);
-    store.setItem('monadv.j.fee', fee.value);
-    store.setItem('monadv.j.courtReq', courtReq.value);
-  }
-
-  // Автовыбор суда по категории
-  function fillCourts(){
-    const groups = (CATS.find(x=>x.id===cat.value)||{}).courtGroup || [];
-    catHint.textContent = (CATS.find(x=>x.id===cat.value)||{}).hint || '';
-    // Сливаем подходящие группы в один список
-    const byReg = courts[reg.value] || {};
-    let list = [];
-    groups.forEach(g=>{
-      if(Array.isArray(byReg[g])) list = list.concat(byReg[g]);
-    });
-    // Фоллбэк: если ничего не нашли — все суды региона
-    if(list.length===0){
-      Object.values(byReg).forEach(arr=>{ if(Array.isArray(arr)) list = list.concat(arr); });
-    }
-    list = Array.from(new Set(list));
-    court.innerHTML = list.map(n=>`<option>${n}</option>`).join('');
-    const saved = store.getItem('monadv.j.court')||'';
-    if(saved && list.includes(saved)) court.value = saved;
-    save();
-  }
-
-  reg.addEventListener('change', ()=>{ fillCourts(); save(); });
-  cat.addEventListener('change', ()=>{ fillCourts(); save(); });
-  court.addEventListener('change', ()=>{ store.setItem('monadv.j.court', court.value); });
-  [doctype, plaintiff, defendant, claim, who, fee, courtReq].forEach(inp=> inp.addEventListener('input', save));
-
-  // Первичная инициализация
-  fillCourts();
-
-  // Расчет госпошлины (синхронно, чтобы не зависеть от другого модуля)
-  function calcFee(){
-    const v = Math.max(0, Number(claim.value||0));
-    let duty = 0;
-    if(v>0){
-      // Имущественные (по умолчанию) — ФЛ 1% (≤ 10 000 МРП), ЮЛ 3% (≤ 20 000 МРП)
-      const rate = (who.value === 'yl') ? 0.03 : 0.01;
-      const cap  = (who.value === 'yl') ? 20000*MRP : 10000*MRP;
-      duty = Math.min(v*rate, cap);
-      fee.value = String(Math.round(duty));
-      save();
-    }
-  }
-  calcBtn.addEventListener('click', calcFee);
-
-  // Генерация «шапки» (выровнено вправо)
-  function genHeader(){
-    const lines = [
-      court.value,
-      '',
-      `От: ${plaintiff.value||'__________'}`,
-      `К:  ${defendant.value||'__________'}`,
-      '',
-      `Тип документа: ${doctype.value}`,
-      `Цена иска: ${claim.value ? Number(claim.value).toLocaleString('ru-RU')+' тг' : '—'}`,
-      `Госпошлина: ${fee.value ? Number(fee.value).toLocaleString('ru-RU')+' тг' : '—'}`,
-      courtReq.value ? ('\nРеквизиты суда:\n'+courtReq.value) : ''
-    ];
-    out.textContent = lines.join('\n');
-    window.scrollTo({top: out.getBoundingClientRect().top + window.scrollY - 16, behavior:'smooth'});
-  }
-
-
-  // Автосохранение расширенных полей
-  const facts = $('#facts'), law = $('#law'), jurisM = $('#juris'),
-        claimsList = $('#claimsList'), evidence = $('#evidence'), attachments = $('#attachments'), subject = $('#subject');
-  [facts, law, jurisM, claimsList, evidence, attachments, subject].forEach(inp=>{
+  // ---------- Autosave ----------
+  const autos = [region, category, courtList, court, plaintiff, defendant, claim, fee, doctype, subject, facts, law, juris, claimsList, evidence, attachments];
+  autos.forEach(inp=>{
     if(!inp) return;
-    const key = 'monadv.j.' + inp.id;
-    const val = store.getItem(key) || '';
-    if(val) inp.value = val;
-    inp.addEventListener('input', ()=> store.setItem(key, inp.value||''));
+    const key = K(inp.id);
+    const val = S(key);
+    if(val){
+      if(inp.tagName==='SELECT'){
+        Array.from(inp.options).some(o=> (o.value===val) && (inp.value=val, true));
+      }else{
+        inp.value = val;
+      }
+    }
+    inp.addEventListener('input', ()=> S(key, inp.value||''));
   });
 
+  // ---------- Courts loader ----------
+  let COURTS = null;
+  try{
+    if(typeof cdn === 'function'){
+      const url = cdn('data/courts.json');
+      const res = await fetch(url, {cache:'no-store'});
+      if(res.ok) COURTS = await res.json();
+    }
+  }catch(e){ /* ignore, fallback to manual court input */ }
+
+  function fillRegions(){
+    if(!COURTS) return;
+    const opts = ['<option value="">— выберите регион —</option>']
+      .concat(Object.keys(COURTS).sort().map(r=>`<option>${r}</option>`));
+    region.innerHTML = opts.join('');
+    if(S(K('region'))) region.value = S(K('region'));
+  }
+  function fillCategories(r){
+    category.innerHTML = '<option value="">— выберите категорию —</option>';
+    category.disabled = true;
+    courtList.innerHTML = '<option value="">— выберите суд —</option>';
+    courtList.disabled = true;
+    if(!COURTS || !r || !COURTS[r]) return;
+    const cats = Object.keys(COURTS[r]).sort();
+    category.innerHTML = ['<option value="">— выберите категорию —</option>']
+      .concat(cats.map(c=>`<option>${c}</option>`)).join('');
+    category.disabled = false;
+    if(S(K('category'))) category.value = S(K('category'));
+  }
+  function fillCourts(r,c){
+    courtList.innerHTML = '<option value="">— выберите суд —</option>';
+    courtList.disabled = true;
+    if(!COURTS || !r || !c || !COURTS[r] || !COURTS[r][c]) return;
+    const items = COURTS[r][c];
+    courtList.innerHTML = ['<option value="">— выберите суд —</option>']
+      .concat(items.map(n=>`<option>${n}</option>`)).join('');
+    courtList.disabled = false;
+    if(S(K('courtList'))) courtList.value = S(K('courtList'));
+  }
+
+  if(COURTS){
+    fillRegions();
+    region.addEventListener('change', ()=>{
+      S(K('region'), region.value||'');
+      fillCategories(region.value);
+      S(K('category'), '');
+      S(K('courtList'), '');
+      courtList.value=''; category.value='';
+    });
+    category.addEventListener('change', ()=>{
+      S(K('category'), category.value||'');
+      fillCourts(region.value, category.value);
+      S(K('courtList'), '');
+      courtList.value='';
+    });
+    courtList.addEventListener('change', ()=>{
+      S(K('courtList'), courtList.value||'');
+      if(courtList.value) court.value = courtList.value;
+    });
+
+    if(region.value) fillCategories(region.value);
+    if(region.value && category.value) fillCourts(region.value, category.value);
+    if(courtList.value) court.value = courtList.value;
+  }else{
+    region.disabled = category.disabled = courtList.disabled = true;
+  }
+
+  // ---------- Generators ----------
+  function money(n){
+    if(n==null || n==='') return '';
+    const num = Number(n);
+    return Number.isFinite(num) ? num.toLocaleString('ru-RU') + ' тг' : String(n);
+  }
+
+  function genHeader(){
+    const lines = [];
+    if(court.value) lines.push('В ' + court.value);
+    if(plaintiff.value) lines.push('Истец: ' + plaintiff.value);
+    if(defendant.value) lines.push('Ответчик: ' + defendant.value);
+    if(claim.value) lines.push('Цена иска: ' + money(claim.value));
+    if(fee.value) lines.push('Госпошлина: ' + money(fee.value));
+
+    const title = (subject.value ? (doctype.value + ' о ' + subject.value) : doctype.value).toUpperCase();
+
+    out.textContent = lines.join('\\n') + (title ? ('\\n\\n' + title) : '');
+    out.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
   function toList(text){
-    const arr = (text||'').split(/\n+/).map(s=>s.trim()).filter(Boolean);
-    return arr.length ? arr.map((s,i)=> (s.match(/^\d+[).]/)? s : (i+1)+') '+s)) : [];
+    const arr = (text||'').split(/\\n+/).map(s=>s.trim()).filter(Boolean);
+    return arr.length ? arr.map((s,i)=> (s.match(/^\\d+[).]/)? s : (i+1)+') '+s)) : [];
   }
 
   function genFull(){
-    // Сначала шапка (как текст), затем тело
-    genHeader(); // заполняет out.textContent
+    genHeader();
     const head = out.textContent || '';
 
     const dt = new Date();
@@ -249,66 +332,93 @@ export default async function render(el, { cdn, store }) {
     const m = String(dt.getMonth()+1).padStart(2,'0');
     const y = dt.getFullYear();
 
-    const _facts = (facts && facts.value || '').trim();
-    const _law = (law && law.value || '').trim();
-    const _jur = (jurisM && jurisM.value || '').trim();
-    const _claims = toList(claimsList && claimsList.value || '');
-    const _ev = toList(evidence && evidence.value || '');
-    const _att = toList(attachments && attachments.value || '');
-
-    const _subject = (subject && subject.value || '').trim();
+    const _facts = (facts.value||'').trim();
+    const _law   = (law.value||'').trim();
+    const _jur   = (juris.value||'').trim();
+    const _claims= toList(claimsList.value||'');
+    const _ev    = toList(evidence.value||'');
+    const _att   = toList(attachments.value||'');
 
     const sections = [];
-
-    // Заголовок документа (тип + предмет «о ...»)
-    const docType = (doctype && doctype.value || 'Иск');
-    const title = _subject ? (docType + ' о ' + _subject).toUpperCase() : docType.toUpperCase();
+    const docType = doctype.value || 'Иск';
+    const title = subject.value ? (docType + ' о ' + subject.value).toUpperCase() : docType.toUpperCase();
     sections.push(title);
 
-    // Описательная часть
-    if(_facts){
-      sections.push('ОБСТОЯТЕЛЬСТВА ДЕЛА:\\n' + _facts);
-    }
-
-    // Правовое обоснование
-    if(_law){
-      sections.push('ПРАВОВОЕ ОБОСНОВАНИЕ:\\n' + _law);
-    }
-
-    // Подсудность (опционально)
-    if(_jur){
-      sections.push('ПОДСУДНОСТЬ:\\n' + _jur);
-    }
-
-    // Просительная часть
-    if(_claims.length){
-      sections.push('ПРОШУ СУД:\\n' + _claims.join('\\n'));
-    }
-
-    // Доказательства
-    if(_ev.length){
-      sections.push('ДОКАЗАТЕЛЬСТВА:\\n' + _ev.join('\\n'));
-    }
-
-    // Приложения
-    if(_att.length){
-      sections.push('ПРИЛОЖЕНИЯ:\\n' + _att.join('\\n'));
-    }
-
+    if(_facts) sections.push('ОБСТОЯТЕЛЬСТВА ДЕЛА:\\n' + _facts);
+    if(_law)   sections.push('ПРАВОВОЕ ОБОСНОВАНИЕ:\\n' + _law);
+    if(_jur)   sections.push('ПОДСУДНОСТЬ:\\n' + _jur);
+    if(_claims.length) sections.push('ПРОШУ СУД:\\n' + _claims.join('\\n'));
+    if(_ev.length)     sections.push('ДОКАЗАТЕЛЬСТВА:\\n' + _ev.join('\\n'));
+    if(_att.length)    sections.push('ПРИЛОЖЕНИЯ:\\n' + _att.join('\\n'));
     sections.push(`\\nДата: ${d}.${m}.${y}   Подпись: ____________`);
 
     out.textContent = head + '\\n\\n' + sections.join('\\n\\n');
-    window.scrollTo({top: out.getBoundingClientRect().top + window.scrollY - 16, behavior:'smooth'});
+    out.scrollIntoView({behavior:'smooth', block:'center'});
   }
 
+  $('#copy').addEventListener('click', async ()=>{
+    try{
+      await navigator.clipboard.writeText(out.textContent||'');
+      $('#copy').textContent = 'Скопировано';
+      setTimeout(()=> $('#copy').textContent='Копировать', 1400);
+    }catch(e){
+      alert('Не удалось скопировать. Скопируйте вручную.');
+    }
+  });
+
+  $('#print').addEventListener('click', ()=>{
+    const _subject = (subject.value||'').trim();
+    const docType  = (doctype.value||'Иск').trim();
+    const title    = (_subject ? (docType + ' о ' + _subject) : docType).toUpperCase();
+
+    const factsV  = (facts.value||'').trim();
+    const lawV    = (law.value||'').trim();
+    const jurisV  = (juris.value||'').trim();
+    const claimsV = (claimsList.value||'').trim();
+    const evV     = (evidence.value||'').trim();
+    const attV    = (attachments.value||'').trim();
+
+    $('#printCourtLeft').textContent = court.value ? ('В ' + court.value) : '';
+    $('#printPlaintiff').textContent = 'Истец: ' + (plaintiff.value||'—');
+    $('#printDefendant').textContent = 'Ответчик: ' + (defendant.value||'—');
+    $('#printPrice').textContent     = 'Цена иска: ' + (money(claim.value)||'—');
+    $('#printFee').textContent       = 'Госпошлина: ' + (money(fee.value)||'—');
+    $('#printTitle').textContent     = title;
+
+    const sections = [];
+    if(factsV)  sections.push('ОБСТОЯТЕЛЬСТВА ДЕЛА:\\n' + factsV);
+    if(lawV)    sections.push('ПРАВОВОЕ ОБОСНОВАНИЕ:\\n' + lawV);
+    if(jurisV)  sections.push('ПОДСУДНОСТЬ:\\n' + jurisV);
+    if(claimsV){
+      const norm = claimsV.split(/\\n+/).map(s=>s.trim()).filter(Boolean)
+        .map((s,i)=> (s.match(/^\\d+[).]/)? s : (i+1)+') '+s)).join('\\n');
+      sections.push('ПРОШУ СУД:\\n' + norm);
+    }
+    if(evV){
+      const norm = evV.split(/\\n+/).map(s=>s.trim()).filter(Boolean)
+        .map((s,i)=> (s.match(/^\\d+[).]/)? s : (i+1)+') '+s)).join('\\n');
+      sections.push('ДОКАЗАТЕЛЬСТВА:\\n' + norm);
+    }
+    if(attV){
+      const norm = attV.split(/\\n+/).map(s=>s.trim()).filter(Boolean)
+        .map((s,i)=> (s.match(/^\\d+[).]/)? s : (i+1)+') '+s)).join('\\n');
+      sections.push('ПРИЛОЖЕНИЯ:\\n' + norm);
+    }
+    const dt = new Date(), d = String(dt.getDate()).padStart(2,'0'), m = String(dt.getMonth()+1).padStart(2,'0'), y = dt.getFullYear();
+    sections.push(\`\\nДата: \${d}.\${m}.\${y}   Подпись: ____________\`);
+
+    $('#printBody').textContent = sections.join('\\n\\n');
+
+    const sheet = $('#printArea');
+    const prev  = sheet.style.display;
+    sheet.style.display = 'block';
+    window.print();
+    sheet.style.display = prev || 'none';
+  });
+
+  // Buttons
   $('#gen').addEventListener('click', genHeader);
   $('#genFull').addEventListener('click', genFull);
-  $('#copy').addEventListener('click', ()=>{
-    navigator.clipboard.writeText(out.textContent||'');
-  });
-  $('#print').addEventListener('click', ()=>{
-    const w = window.open('', '_blank', 'width=900,height=700');
-    w.document.write(`<pre style="font:16px/1.5 system-ui; text-align:right; white-space:pre-wrap">${out.textContent||''}</pre>`);
-    w.document.close(); w.focus(); w.print(); w.close();
-  });
+
+  genHeader();
 }
