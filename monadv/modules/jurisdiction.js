@@ -72,6 +72,12 @@ export default async function render(el, { cdn, store }) {
         </div>
       </div>
 
+      <div class="row">
+  <label class="col" style="flex:1 1 100%">О чём заявление (кратко — после «о»)<br>
+    <input id="subject" type="text" placeholder="взыскании суммы долга; расторжении брака; признании права собственности"/>
+  </label>
+</div>
+
       <!-- Поля для полного конструктора (сворачиваемый блок) -->
       <div class="box" id="fullBlock">
         <div class="row">
@@ -219,8 +225,8 @@ export default async function render(el, { cdn, store }) {
 
   // Автосохранение расширенных полей
   const facts = $('#facts'), law = $('#law'), jurisM = $('#juris'),
-        claimsList = $('#claimsList'), evidence = $('#evidence'), attachments = $('#attachments');
-  [facts, law, jurisM, claimsList, evidence, attachments].forEach(inp=>{
+        claimsList = $('#claimsList'), evidence = $('#evidence'), attachments = $('#attachments'), subject = $('#subject');
+  [facts, law, jurisM, claimsList, evidence, attachments, subject].forEach(inp=>{
     if(!inp) return;
     const key = 'monadv.j.' + inp.id;
     const val = store.getItem(key) || '';
@@ -250,10 +256,14 @@ export default async function render(el, { cdn, store }) {
     const _ev = toList(evidence && evidence.value || '');
     const _att = toList(attachments && attachments.value || '');
 
+    const _subject = (subject && subject.value || '').trim();
+
     const sections = [];
 
-    // Заголовок документа (тип)
-    sections.push(doctype.value.toUpperCase());
+    // Заголовок документа (тип + предмет «о ...»)
+    const docType = (doctype && doctype.value || 'Иск');
+    const title = _subject ? (docType + ' о ' + _subject).toUpperCase() : docType.toUpperCase();
+    sections.push(title);
 
     // Описательная часть
     if(_facts){
