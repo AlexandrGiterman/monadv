@@ -28,9 +28,12 @@
   "id": "restriction-parental-rights",
   "title": "Ограничение родительских прав",
   "category": "Семейные"
+},
+    {
+  "id": "deprivation-parental-rights",
+  "title": "Лишение родительских прав",
+  "category": "Семейные"
 }
-
-
 
 
   ]
