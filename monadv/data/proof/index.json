@@ -2,7 +2,9 @@
   "version": "2026-02-12",
   "caseTypes": [
     { "id": "divorce", "title": "Расторжение брака", "category": "Семейные" },
-    { "id": "alimony", "title": "Взыскание алиментов", "category": "Семейные" }
+    { "id": "alimony", "title": "Взыскание алиментов", "category": "Семейные" },
+    { "id": "change-alimony", "title": "Изменение размера алиментов", "category": "Семейные"}
+
   ]
 }
 
