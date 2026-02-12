@@ -3,7 +3,13 @@
   "caseTypes": [
     { "id": "divorce", "title": "Расторжение брака", "category": "Семейные" },
     { "id": "alimony", "title": "Взыскание алиментов", "category": "Семейные" },
-    { "id": "change-alimony", "title": "Изменение размера алиментов", "category": "Семейные"}
+    { "id": "change-alimony", "title": "Изменение размера алиментов", "category": "Семейные"},
+    {
+  "id": "release-alimony",
+  "title": "Освобождение от уплаты алиментов",
+  "category": "Семейные"
+}
+
 
   ]
 }
