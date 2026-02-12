@@ -18,7 +18,13 @@
   "id": "child-residence",
   "title": "Определение места жительства ребёнка",
   "category": "Семейные"
+},
+    {
+  "id": "child-communication",
+  "title": "Порядок общения с ребёнком",
+  "category": "Семейные"
 }
+
 
 
   ]
