@@ -3,49 +3,676 @@
   "caseTypes": [
     { "id": "divorce", "title": "Расторжение брака", "category": "Семейные" },
     { "id": "alimony", "title": "Взыскание алиментов", "category": "Семейные" },
-    { "id": "change-alimony", "title": "Изменение размера алиментов", "category": "Семейные"},
+    { "id": "change-alimony", "title": "Изменение размера алиментов", "category": "Семейные" },
     {
-  "id": "release-alimony",
-  "title": "Освобождение от уплаты алиментов",
-  "category": "Семейные"
-},
+      "id": "release-alimony",
+      "title": "Освобождение от уплаты алиментов",
+      "category": "Семейные"
+    },
     {
-  "id": "spouse-alimony",
-  "title": "Алименты на содержание супруги (бывшей супруги)",
-  "category": "Семейные"
-},
+      "id": "spouse-alimony",
+      "title": "Алименты на содержание супруги (бывшей супруги)",
+      "category": "Семейные"
+    },
     {
-  "id": "child-residence",
-  "title": "Определение места жительства ребёнка",
-  "category": "Семейные"
-},
+      "id": "child-residence",
+      "title": "Определение места жительства ребёнка",
+      "category": "Семейные"
+    },
     {
-  "id": "child-communication",
-  "title": "Порядок общения с ребёнком",
-  "category": "Семейные"
-},
+      "id": "child-communication",
+      "title": "Порядок общения с ребёнком",
+      "category": "Семейные"
+    },
     {
-  "id": "restriction-parental-rights",
-  "title": "Ограничение родительских прав",
-  "category": "Семейные"
-},
+      "id": "restriction-parental-rights",
+      "title": "Ограничение родительских прав",
+      "category": "Семейные"
+    },
     {
-  "id": "deprivation-parental-rights",
-  "title": "Лишение родительских прав",
-  "category": "Семейные"
-},
+      "id": "deprivation-parental-rights",
+      "title": "Лишение родительских прав",
+      "category": "Семейные"
+    },
     {
-  "id": "division-property",
-  "title": "Раздел имущества супругов",
-  "category": "Семейные"
-},
+      "id": "division-property",
+      "title": "Раздел имущества супругов",
+      "category": "Семейные"
+    },
     {
-  "id": "invalid-marriage",
-  "title": "Признание брака недействительным",
-  "category": "Семейные"
-}
+      "id": "invalid-marriage",
+      "title": "Признание брака недействительным",
+      "category": "Семейные"
+    },
+  
+    {
+      "id": "housing-eviction",
+      "title": "Вселение и выселение из жилого помещения",
+      "category": "Жилищные"
+    },
+    {
+      "id": "housing-share-allocation",
+      "title": "Выделение долей и порядок пользования жилым помещением",
+      "category": "Жилищные"
+    },
+    {
+      "id": "housing-osi-ksk-dispute",
+      "title": "Споры с ОСИ / КСК",
+      "category": "Жилищные"
+    },
+    {
+      "id": "housing-common-property",
+      "title": "Общее имущество многоквартирного дома",
+      "category": "Жилищные"
+    },
+    {
+      "id": "housing-rent-dispute",
+      "title": "Арендные споры (найм жилья)",
+      "category": "Жилищные"
+    },
+    {
+      "id": "housing-utility-debt",
+      "title": "Задолженность по ЖКУ и коммунальным платежам",
+      "category": "Жилищные"
+    },
+    {
+      "id": "housing-redevelopment",
+      "title": "Перепланировка квартиры",
+      "category": "Жилищные"
+    },
+    {
+      "id": "housing-emergency",
+      "title": "Аварийное жилье и правила проживания",
+      "category": "Жилищные"
+    },
+    {
+      "id": "housing-registration-removal",
+      "title": "Снятие с регистрационного учета (выписка из квартиры)",
+      "category": "Жилищные"
+    },
+    {
+      "id": "housing-damage-flood",
+      "title": "Возмещение ущерба от затопления квартиры",
+      "category": "Жилищные"
+    },
+    {
+      "id": "housing-osi-decision-challenge",
+      "title": "Оспаривание решений ОСИ",
+      "category": "Жилищные"
+    },
 
-
+    {
+      "id": "real-estate-ownership-recognition",
+      "title": "Признание права собственности на недвижимость",
+      "category": "Земельные"
+    },
+    {
+      "id": "land-boundaries-establishment",
+      "title": "Установление границ земельного участка",
+      "category": "Земельные"
+    },
+    {
+      "id": "land-servitude",
+      "title": "Сервитут (установление, изменение, прекращение)",
+      "category": "Земельные"
+    },
+    {
+      "id": "land-division-consolidation-purpose-change",
+      "title": "Раздел/объединение участка и изменение целевого назначения",
+      "category": "Земельные"
+    },
+    {
+      "id": "urban-planning-norms-technical-conditions",
+      "title": "Градостроительные нормы и технические условия",
+      "category": "Земельные"
+    },
+    {
+      "id": "mortgage-pledge-real-estate",
+      "title": "Ипотека и залог недвижимости",
+      "category": "Земельные"
+    },
+    {
+      "id": "state-needs-expropriation",
+      "title": "Изъятие недвижимости для государственных нужд",
+      "category": "Земельные"
+    },
+    {
+      "id": "unauthorized-construction",
+      "title": "Незаконное строительство (самострой)",
+      "category": "Земельные"
+    },
+    {
+      "id": "land-lease-and-equity-participation-ddu",
+      "title": "Аренда земли и долевое участие (ДДУ)",
+      "category": "Земельные"
+    },
+    {
+      "id": "real-estate-transaction-challenge",
+      "title": "Оспаривание сделок с недвижимостью",
+      "category": "Земельные"
+    },
+    {
+      "id": "vindication-and-negatory-claims",
+      "title": "Виндикационный и негаторные иски",
+      "category": "Земельные"
+    },
+    {
+      "id": "land-seizure-and-privatization",
+      "title": "Самозахват и приватизация ранее занятой земли",
+      "category": "Земельные"
+    },
+    {
+      "id": "shared-ownership-use-order",
+      "title": "Долевая собственность и порядок пользования",
+      "category": "Земельные"
+    },
+    {
+      "id": "cadastral-errors-correction",
+      "title": "Кадастровые ошибки и исправление сведений",
+      "category": "Земельные"
+    },
+    {
+      "id": "land-auctions-dispute",
+      "title": "Аукционы/торги по земле и их оспаривание",
+      "category": "Земельные"
+    },
+    {
+      "id": "land-use-right-dispute",
+      "title": "Споры о праве пользования земельным участком",
+      "category": "Земельные"
+    },
+    {
+      "id": "land-seizure-challenge",
+      "title": "Оспаривание изъятия земельного участка",
+      "category": "Земельные"
+    },
+    {
+      "id": "land-use-violation",
+      "title": "Нарушение целевого использования земельного участка",
+      "category": "Земельные"
+    },
+  
+    {
+      "id": "contract-debt-recovery",
+      "title": "Взыскание задолженности по договору",
+      "category": "Арбитражные и гражданско-правовые"
+    },
+    {
+      "id": "contract-termination-modification",
+      "title": "Расторжение и изменение договоров",
+      "category": "Арбитражные и гражданско-правовые"
+    },
+    {
+      "id": "supply-contract-disputes",
+      "title": "Поставки, подряд и услуги: качество, сроки, штрафы",
+      "category": "Арбитражные и гражданско-правовые"
+    },
+    {
+      "id": "lease-lizing-disputes",
+      "title": "Аренда и лизинг: споры сторон",
+      "category": "Арбитражные и гражданско-правовые"
+    },
+    {
+      "id": "invalid-transaction-unjust-enrichment",
+      "title": "Недействительность сделки и неосновательное обогащение",
+      "category": "Арбитражные и гражданско-правовые"
+    },
+    {
+      "id": "reputation-protection",
+      "title": "Защита деловой репутации, чести и достоинства",
+      "category": "Арбитражные и гражданско-правовые"
+    },
+    {
+      "id": "damages-interest-recovery",
+      "title": "Убытки и проценты за пользование чужими деньгами",
+      "category": "Арбитражные и гражданско-правовые"
+    },
+    {
+      "id": "interim-measures-enforcement",
+      "title": "Обеспечительные меры и исполнение решения",
+      "category": "Арбитражные и гражданско-правовые"
+    },
+    {
+      "id": "penalty-recovery",
+      "title": "Взыскание неустойки (штрафа, пени)",
+      "category": "Арбитражные и гражданско-правовые"
+    },
+    {
+      "id": "guarantee-surety-disputes",
+      "title": "Споры по поручительству и гарантиям",
+      "category": "Арбитражные и гражданско-правовые"
+    },
+    {
+      "id": "business-damage-recovery",
+      "title": "Возмещение убытков в предпринимательской деятельности",
+      "category": "Арбитражные и гражданско-правовые"
+    },
+  
+    {
+      "id": "defective-product-return",
+      "title": "Возврат товара ненадлежащего качества",
+      "category": "Защита прав потребителей"
+    },
+    {
+      "id": "service-contract-termination-refund",
+      "title": "Расторжение договора и возврат денег за услугу",
+      "category": "Защита прав потребителей"
+    },
+    {
+      "id": "warranty-repair-replacement-deadlines",
+      "title": "Гарантийный ремонт, замена и сроки",
+      "category": "Защита прав потребителей"
+    },
+    {
+      "id": "penalty-fine-moral-damage",
+      "title": "Неустойка, штраф и моральный вред",
+      "category": "Защита прав потребителей"
+    },
+    {
+      "id": "consumer-claim-pretrial-settlement",
+      "title": "Претензия и досудебное урегулирование",
+      "category": "Защита прав потребителей"
+    },
+    {
+      "id": "independent-expertise-evidence",
+      "title": "Независимая экспертиза и доказательства",
+      "category": "Защита прав потребителей"
+    },
+    {
+      "id": "online-shopping-distance-sales",
+      "title": "Интернет-покупки и дистанционная торговля",
+      "category": "Защита прав потребителей"
+    },
+    {
+      "id": "consumer-court-enforcement",
+      "title": "Суд и исполнение решения",
+      "category": "Защита прав потребителей"
+    },
+    {
+      "id": "misleading-consumer-information",
+      "title": "Недостоверная или неполная информация о товаре или услуге",
+      "category": "Защита прав потребителей"
+    },
+    {
+      "id": "imposed-services-dispute",
+      "title": "Навязывание дополнительных услуг или товаров",
+      "category": "Защита прав потребителей"
+    },
+    {
+      "id": "advance-payment-refund",
+      "title": "Возврат предоплаты и аванса за товар или услугу",
+      "category": "Защита прав потребителей"
+    },
+    {
+      "id": "poor-quality-service",
+      "title": "Оказание услуг ненадлежащего качества",
+      "category": "Защита прав потребителей"
+    },
+  
+    {
+      "id": "employment-termination-dismissal",
+      "title": "Увольнение",
+      "category": "Трудовые"
+    },
+    {
+      "id": "wage-nonpayment-delay",
+      "title": "Невыплата или задержка заработной платы",
+      "category": "Трудовые"
+    },
+    {
+      "id": "reinstatement-record-correction",
+      "title": "Восстановление на работе и исправление записи",
+      "category": "Трудовые"
+    },
+    {
+      "id": "transfer-terms-change-redundancy",
+      "title": "Перевод и изменение условий труда, сокращение",
+      "category": "Трудовые"
+    },
+    {
+      "id": "disciplinary-sanctions",
+      "title": "Дисциплинарные взыскания (выговор, замечание)",
+      "category": "Трудовые"
+    },
+    {
+      "id": "work-accident-safety",
+      "title": "Несчастный случай на производстве и охрана труда",
+      "category": "Трудовые"
+    },
+    {
+      "id": "collective-disputes-strike",
+      "title": "Коллективные трудовые споры и забастовки",
+      "category": "Трудовые"
+    },
+    {
+      "id": "discrimination-mobbing-harassment",
+      "title": "Дискриминация, моббинг и притеснение",
+      "category": "Трудовые"
+    },
+    {
+      "id": "illegal-probation-dismissal",
+      "title": "Увольнение в период испытательного срока",
+      "category": "Трудовые"
+    },
+    {
+      "id": "labor-contract-recognition",
+      "title": "Признание трудовых отношений и трудового договора",
+      "category": "Трудовые"
+    },
+    {
+      "id": "compensation-unused-vacation",
+      "title": "Компенсация за неиспользованный отпуск",
+      "category": "Трудовые"
+    },
+    {
+      "id": "material-liability-employee",
+      "title": "Материальная ответственность работника или работодателя",
+      "category": "Трудовые"
+    },
+  
+    {
+      "id": "appk-individual-admin-act-appeal",
+      "title": "Обжалование административного акта (индивидуального)",
+      "category": "Административные (АППК)"
+    },
+    {
+      "id": "appk-actions-inaction-challenge",
+      "title": "Оспаривание действий/бездействий госоргана",
+      "category": "Административные (АППК)"
+    },
+    {
+      "id": "appk-higher-authority-complaint",
+      "title": "Жалоба на вышестоящий орган (внесудебный порядок)",
+      "category": "Административные (АППК)"
+    },
+    {
+      "id": "appk-terms-jurisdiction",
+      "title": "Сроки и подсудность по АППК",
+      "category": "Административные (АППК)"
+    },
+    {
+      "id": "appk-interim-measures-suspension",
+      "title": "Меры обеспечения: приостановление действия акта",
+      "category": "Административные (АППК)"
+    },
+    {
+      "id": "appk-evidence-collection",
+      "title": "Доказательства в административном деле: что важно собрать",
+      "category": "Административные (АППК)"
+    },
+    {
+      "id": "appk-judgment-enforcement",
+      "title": "Исполнение решения суда по административному делу",
+      "category": "Административные (АППК)"
+    },
+    {
+      "id": "appk-appeal-review",
+      "title": "Апелляция и пересмотр административного дела",
+      "category": "Административные (АППК)"
+    },
+    {
+      "id": "appk-refusal-public-service",
+      "title": "Отказ в предоставлении государственной услуги",
+      "category": "Административные (АППК)"
+    },
+    {
+      "id": "appk-license-permit-dispute",
+      "title": "Споры о лицензиях, разрешениях и регистрациях",
+      "category": "Административные (АППК)"
+    },
+    {
+      "id": "appk-administrative-penalty-challenge",
+      "title": "Оспаривание административных штрафов и предписаний",
+      "category": "Административные (АППК)"
+    },
+    {
+      "id": "appk-public-procurement-decisions",
+      "title": "Оспаривание решений по государственным закупкам",
+      "category": "Административные (АППК)"
+    },
+  
+    {
+      "id": "koap-fine-appeal",
+      "title": "Обжалование административного штрафа",
+      "category": "КоАП"
+    },
+    {
+      "id": "koap-driving-license-deprivation",
+      "title": "Лишение водительских прав (ПДД)",
+      "category": "КоАП"
+    },
+    {
+      "id": "koap-fine-installment-deferral",
+      "title": "Рассрочка или отсрочка уплаты штрафа",
+      "category": "КоАП"
+    },
+    {
+      "id": "koap-migration-sanitary-ecology",
+      "title": "Миграционные, санитарные и экологические штрафы",
+      "category": "КоАП"
+    },
+    {
+      "id": "koap-trade-small-business-fines",
+      "title": "Штрафы в торговле и малом бизнесе",
+      "category": "КоАП"
+    },
+    {
+      "id": "koap-petty-hooliganism-public-order",
+      "title": "Мелкое хулиганство и нарушение общественного порядка",
+      "category": "КоАП"
+    },
+    {
+      "id": "koap-internet-violations-blocking",
+      "title": "Правонарушения и блокировки в интернете",
+      "category": "КоАП"
+    },
+    {
+      "id": "koap-confiscation-arrest-costs",
+      "title": "Конфискация, арест имущества и издержки",
+      "category": "КоАП"
+    },
+    {
+      "id": "koap-administrative-detention",
+      "title": "Административное задержание и доставление",
+      "category": "КоАП"
+    },
+    {
+      "id": "koap-business-without-registration",
+      "title": "Предпринимательская деятельность без регистрации",
+      "category": "КоАП"
+    },
+    {
+      "id": "koap-fire-safety-violations",
+      "title": "Нарушения требований пожарной безопасности",
+      "category": "КоАП"
+    },
+    {
+      "id": "koap-urban-improvement-violations",
+      "title": "Нарушения правил благоустройства и содержания территорий",
+      "category": "КоАП"
+    },
+  
+    {
+      "id": "criminal-detention-interrogation",
+      "title": "Задержание и допросы",
+      "category": "Уголовная защита"
+    },
+    {
+      "id": "criminal-preventive-measures",
+      "title": "Мера пресечения: арест, залог, домашний арест",
+      "category": "Уголовная защита"
+    },
+    {
+      "id": "criminal-search-seizure-expertise",
+      "title": "Обыски, выемки, экспертизы: защита при следственных действиях",
+      "category": "Уголовная защита"
+    },
+    {
+      "id": "criminal-indictment-case-review",
+      "title": "Ознакомление с делом и предъявление обвинения",
+      "category": "Уголовная защита"
+    },
+    {
+      "id": "criminal-trial-defense-strategy",
+      "title": "Суд первой инстанции: стратегия и исключение доказательств",
+      "category": "Уголовная защита"
+    },
+    {
+      "id": "criminal-appeal-cassation",
+      "title": "Апелляция и кассация: обжалование приговора",
+      "category": "Уголовная защита"
+    },
+    {
+      "id": "criminal-victim-civil-claim",
+      "title": "Потерпевший и гражданский иск в уголовном деле",
+      "category": "Уголовная защита"
+    },
+    {
+      "id": "criminal-rehabilitation-compensation",
+      "title": "Реабилитация и компенсация за незаконное преследование",
+      "category": "Уголовная защита"
+    },
+    {
+      "id": "criminal-property-seizure",
+      "title": "Арест имущества и временные ограничения собственности",
+      "category": "Уголовная защита"
+    },
+    {
+      "id": "criminal-plea-agreement",
+      "title": "Процессуальное соглашение и признание вины",
+      "category": "Уголовная защита"
+    },
+    {
+      "id": "criminal-private-prosecution",
+      "title": "Дела частного обвинения",
+      "category": "Уголовная защита"
+    },
+    {
+      "id": "criminal-case-termination",
+      "title": "Прекращение уголовного дела и освобождение от ответственности",
+      "category": "Уголовная защита"
+    },
+  
+    {
+      "id": "enforcement-bailiff-actions-challenge",
+      "title": "Обжалование постановлений и действий/бездействий ЧСИ",
+      "category": "Исполнительное производство"
+    },
+    {
+      "id": "enforcement-property-release",
+      "title": "Снятие ареста и исключение имущества из описи",
+      "category": "Исполнительное производство"
+    },
+    {
+      "id": "enforcement-deferral-installment",
+      "title": "Предоставление отсрочки или рассрочки исполнения",
+      "category": "Исполнительное производство"
+    },
+    {
+      "id": "enforcement-restrictions-removal",
+      "title": "Снятие ограничений: выезд, управление ТС, спецправа",
+      "category": "Исполнительное производство"
+    },
+    {
+      "id": "enforcement-income-deductions-reduction",
+      "title": "Уменьшение удержаний из дохода и защита прожиточного минимума",
+      "category": "Исполнительное производство"
+    },
+    {
+      "id": "enforcement-notary-writ-challenge",
+      "title": "Оспаривание исполнительной надписи нотариуса",
+      "category": "Исполнительное производство"
+    },
+    {
+      "id": "enforcement-party-substitution-consolidation",
+      "title": "Замена стороны, объединение и окончание исполнительных производств",
+      "category": "Исполнительное производство"
+    },
+    {
+      "id": "enforcement-asset-search-collection",
+      "title": "Розыск имущества и доходов. Обращение взыскания",
+      "category": "Исполнительное производство"
+    },
+    {
+      "id": "enforcement-bank-account-arrest",
+      "title": "Арест банковских счетов и электронных кошельков",
+      "category": "Исполнительное производство"
+    },
+    {
+      "id": "enforcement-real-estate-sale",
+      "title": "Реализация имущества должника",
+      "category": "Исполнительное производство"
+    },
+    {
+      "id": "enforcement-auction-challenge",
+      "title": "Оспаривание результатов торгов (аукциона)",
+      "category": "Исполнительное производство"
+    },
+    {
+      "id": "enforcement-penalty-bailiff-fees",
+      "title": "Оспаривание исполнительского сбора и расходов ЧСИ",
+      "category": "Исполнительное производство"
+    },
+  
+    {
+      "id": "tax-audit-results-challenge",
+      "title": "Обжалование результатов налоговой проверки",
+      "category": "Налоговые"
+    },
+    {
+      "id": "tax-cameral-control-notification",
+      "title": "Камеральный контроль: уведомление, возражения, доказательства",
+      "category": "Налоговые"
+    },
+    {
+      "id": "tax-bank-account-unfreeze",
+      "title": "Снятие блокировок счетов и приостановлений операций",
+      "category": "Налоговые"
+    },
+    {
+      "id": "tax-vat-gap-disputes",
+      "title": "НДС и «разрывы»: входной НДС, должная осмотрительность",
+      "category": "Налоговые"
+    },
+    {
+      "id": "tax-cit-pit-expense-recognition",
+      "title": "КПН и ИПН: доначисления и признание расходов",
+      "category": "Налоговые"
+    },
+    {
+      "id": "tax-penalties-interest-relief",
+      "title": "Штрафы и пени: уменьшение, списание, рассрочка",
+      "category": "Налоговые"
+    },
+    {
+      "id": "tax-kgd-appeal-commission",
+      "title": "Апелляционная комиссия КГД: досудебное урегулирование",
+      "category": "Налоговые"
+    },
+    {
+      "id": "tax-court-challenge-decisions",
+      "title": "Судебное оспаривание решений налогового органа",
+      "category": "Налоговые"
+    },
+    {
+      "id": "tax-taxpayer-registration-dispute",
+      "title": "Споры о постановке и снятии с регистрационного учета налогоплательщика",
+      "category": "Налоговые"
+    },
+    {
+      "id": "tax-risk-management-system",
+      "title": "Система управления рисками (СУР): включение в категорию риска",
+      "category": "Налоговые"
+    },
+    {
+      "id": "tax-refund-overpaid-tax",
+      "title": "Возврат излишне уплаченных налогов и платежей",
+      "category": "Налоговые"
+    },
+    {
+      "id": "tax-transfer-pricing-disputes",
+      "title": "Споры по трансфертному ценообразованию",
+      "category": "Налоговые"
+    }
   ]
 }
-
