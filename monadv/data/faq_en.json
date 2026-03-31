@@ -1,1 +1,219 @@
-
+[
+  {
+    "id": "fam_001",
+    "g": "Family Law",
+    "q": "How do I file for divorce through the Civil Registry Office?",
+    "a": "<p>If there are no common minor children and no property dispute, divorce may be registered through the Civil Registry Office on the basis of a joint application by the spouses. If there is a dispute, the case must be resolved only through court under the Civil Procedure Code of Kazakhstan.</p>",
+    "order": 1
+  },
+  {
+    "id": "fam_002",
+    "g": "Family Law",
+    "q": "How can child support be recovered?",
+    "a": "<p>Child support may be recovered as a share of income or as a fixed monetary amount. The claim may be filed at the defendant’s place of residence or at the claimant’s place of residence if the child lives with the claimant. A notarized child support agreement is also possible.</p>",
+    "order": 2
+  },
+  {
+    "id": "fam_003",
+    "g": "Family Law",
+    "q": "How is a child’s place of residence determined after divorce?",
+    "a": "<p>The court considers the child’s interests, attachment, age, living conditions of each parent, the opinion of the guardianship authority, and the child’s opinion (from the age of 10).</p>",
+    "order": 3
+  },
+  {
+    "id": "fam_004",
+    "g": "Family Law",
+    "q": "How is spouses’ property divided after divorce?",
+    "a": "<p>Marital property is divided equally unless otherwise proven. The court may depart from equality of shares taking into account the interests of the children and the contribution of each spouse.</p>",
+    "order": 4
+  },
+  {
+    "id": "nasl_001",
+    "g": "Inheritance Law",
+    "q": "What is the time limit for accepting an inheritance?",
+    "a": "<p>The general period is 6 months from the date the inheritance is opened (the date of the testator’s death). Restoration of the missed period is possible through court for valid reasons or with the consent of all heirs before a notary.</p>",
+    "order": 1
+  },
+  {
+    "id": "nasl_002",
+    "g": "Inheritance Law",
+    "q": "How can a missed inheritance acceptance deadline be restored?",
+    "a": "<p>You need to file a claim for restoration of the missed term and prove valid reasons such as illness, lack of knowledge about the death, and so on. An alternative is the consent of all heirs before a notary.</p>",
+    "order": 2
+  },
+  {
+    "id": "nasl_003",
+    "g": "Inheritance Law",
+    "q": "What is a compulsory share in inheritance?",
+    "a": "<p>Minor or disabled heirs are entitled to a compulsory share regardless of the will. Its amount is not less than one-half of the statutory share.</p>",
+    "order": 3
+  },
+  {
+    "id": "house_001",
+    "g": "Housing Law",
+    "q": "How can a former owner be evicted after the sale of an apartment?",
+    "a": "<p>After the transfer of ownership, the former owner loses the right of use. First send a demand to vacate the premises; if refused, file a claim for eviction and deregistration.</p>",
+    "order": 1
+  },
+  {
+    "id": "house_002",
+    "g": "Housing Law",
+    "q": "How can unauthorized redevelopment be legalized?",
+    "a": "<p>It is necessary to obtain a technical opinion, approvals from the authorized bodies, and have the changes entered into the technical passport. If refused, court proceedings are possible.</p>",
+    "order": 2
+  },
+  {
+    "id": "lab_001",
+    "g": "Labor Law",
+    "q": "What should I do in case of unlawful dismissal?",
+    "a": "<p>Request a copy of the dismissal order, timesheets, and settlement documents. File a claim for reinstatement, recovery of wages for forced absence, and moral damages. The limitation period is 1 month from the date the dismissal order was served.</p>",
+    "order": 1
+  },
+  {
+    "id": "lab_002",
+    "g": "Labor Law",
+    "q": "Salary delay — where should I apply?",
+    "a": "<p>The employer is obliged to pay the salary and compensation for delay. You may apply to the court or to the state labor inspectorate.</p>",
+    "order": 2
+  },
+  {
+    "id": "debt_001",
+    "g": "Debts and Promissory Notes",
+    "q": "How can a debt under a written acknowledgment be recovered?",
+    "a": "<p>File a claim at the debtor’s place of residence and attach the original written acknowledgment. Interest and penalties may be recovered under the contract or the Civil Code of Kazakhstan.</p>",
+    "order": 1
+  },
+  {
+    "id": "debt_002",
+    "g": "Debts and Promissory Notes",
+    "q": "What is the limitation period for debt claims?",
+    "a": "<p>The general limitation period is 3 years from the moment when the creditor learned of the violation of the right. It is interrupted by acknowledgment of the debt.</p>",
+    "order": 2
+  },
+  {
+    "id": "cons_001",
+    "g": "Consumer Rights",
+    "q": "How can I get a refund for defective goods?",
+    "a": "<p>A written claim must be submitted to the seller. You may demand a refund, replacement, repair, or price reduction. If refused, you may apply to the court.</p>",
+    "order": 1
+  },
+  {
+    "id": "cons_002",
+    "g": "Consumer Rights",
+    "q": "How can warranty repair or replacement of goods be carried out?",
+    "a": "<p>During the warranty period, you may demand repair, replacement, price reduction, or refund. The repair period must not exceed 20 days.</p>",
+    "order": 2
+  },
+  {
+    "id": "adm_001",
+    "g": "Administrative Cases",
+    "q": "How can an administrative fine be appealed?",
+    "a": "<p>A complaint must be filed with the court within 10 days from the date of receipt of the ruling. Attach evidence and request the summoning of witnesses.</p>",
+    "order": 1
+  },
+  {
+    "id": "adm_002",
+    "g": "Administrative Cases",
+    "q": "What are the time limits for administrative liability?",
+    "a": "<p>The general period is 2 months from the date of the offense, and for continuing offenses — from the date of detection. Certain offenses have special limitation periods.</p>",
+    "order": 2
+  },
+  {
+    "id": "crim_001",
+    "g": "Criminal Law",
+    "q": "When is the participation of a lawyer mandatory?",
+    "a": "<p>It is mandatory upon detention, interrogation, bringing of charges, imposition of a preventive measure, and also during interrogation of a minor suspect.</p>",
+    "order": 1
+  },
+  {
+    "id": "crim_002",
+    "g": "Criminal Law",
+    "q": "Can a preventive measure be appealed?",
+    "a": "<p>Yes. A court ruling on a preventive measure may be appealed in the appellate procedure within three days from the moment of announcement.</p>",
+    "order": 2
+  },
+  {
+    "id": "arb_001",
+    "g": "Commercial Disputes",
+    "q": "How can debt under a supply agreement be recovered?",
+    "a": "<p>First send a contractual claim, then file a lawsuit for the principal debt, penalty, interest, and costs. Delivery notes, certificates, and invoices are required.</p>",
+    "order": 1
+  },
+  {
+    "id": "arb_002",
+    "g": "Commercial Disputes",
+    "q": "How can a claim be secured?",
+    "a": "<p>File a motion for interim measures such as seizure of property, bank accounts, and other assets together with the claim or during the proceedings if there is a risk that the judgment will not be enforced.</p>",
+    "order": 2
+  },
+  {
+    "id": "auto_001",
+    "g": "Auto Disputes",
+    "q": "What should be done after a road accident?",
+    "a": "<p>Call the police or prepare a simplified accident report, record the damage, notify the insurer, undergo an expert assessment, and keep all receipts.</p>",
+    "order": 1
+  },
+  {
+    "id": "auto_002",
+    "g": "Auto Disputes",
+    "q": "What if the insurance company refuses payment?",
+    "a": "<p>Send a written claim with reference to the compulsory insurance law. If refused, file a lawsuit and obtain an independent expert assessment.</p>",
+    "order": 2
+  },
+  {
+    "id": "exec_001",
+    "g": "Enforcement Proceedings",
+    "q": "How can a debt be recovered through a bailiff?",
+    "a": "<p>Obtain the enforcement document and submit an application to the bailiff. Monitor the enforcement measures: search for bank accounts, seizure of property, and travel restrictions.</p>",
+    "order": 1
+  },
+  {
+    "id": "exec_002",
+    "g": "Enforcement Proceedings",
+    "q": "How can a bailiff’s actions be appealed?",
+    "a": "<p>A complaint must be filed with the court within 10 days from the date when the violation became known. Demand that the actions be declared unlawful and that the violations be remedied.</p>",
+    "order": 2
+  },
+  {
+    "id": "real_001",
+    "g": "Real Estate",
+    "q": "How can ownership be recognized by acquisitive prescription?",
+    "a": "<p>It is necessary to prove good-faith, open, and continuous possession of the property as one’s own for the statutory period and the absence of a dispute over the right.</p>",
+    "order": 1
+  },
+  {
+    "id": "real_002",
+    "g": "Real Estate",
+    "q": "How can a sale and purchase transaction be challenged?",
+    "a": "<p>Grounds include sham or pretended transaction, fraud, mistake, coercion, or incapacity. Special limitation periods apply, and evidence is required.</p>",
+    "order": 2
+  },
+  {
+    "id": "harm_001",
+    "g": "Compensation for Damage",
+    "q": "How can damages for harm to health caused by a medical error be recovered?",
+    "a": "<p>A medical expert opinion, proof of causation, and collection of medical documents are required. A claim may be filed for material and moral damages.</p>",
+    "order": 1
+  },
+  {
+    "id": "harm_002",
+    "g": "Compensation for Damage",
+    "q": "How can moral damages be recovered?",
+    "a": "<p>The amount of compensation is determined by the court taking into account the nature of the suffering and the fault of the wrongdoer. Evidence may include medical certificates, witness statements, and documents.</p>",
+    "order": 2
+  },
+  {
+    "id": "state_001",
+    "g": "State Authorities and Services",
+    "q": "How can a refusal by a state authority or akimat be appealed?",
+    "a": "<p>A complaint may be filed with a higher authority and/or a lawsuit may be brought before the court. Attach copies of applications, responses, and evidence of the violation of rights.</p>",
+    "order": 1
+  },
+  {
+    "id": "state_002",
+    "g": "State Authorities and Services",
+    "q": "How can certificates and documents for court be obtained?",
+    "a": "<p>You may send lawyer’s requests or motions for disclosure of evidence. In case of refusal, a complaint or court application is possible.</p>",
+    "order": 2
+  }
+]
