@@ -215,5 +215,216 @@
     "q": "How can certificates and documents for court be obtained?",
     "a": "<p>You may send lawyer’s requests or motions for disclosure of evidence. In case of refusal, a complaint or court application is possible.</p>",
     "order": 2
-  }
+  },
+  ,
+{
+  "id": "fam_005",
+  "g": "Family Law",
+  "q": "Is divorce possible if one spouse is against it?",
+  "a": "<p>Yes. The court will dissolve the marriage if it finds that preservation of the family is impossible. The court may grant up to 3 months for reconciliation, but if the family has clearly broken down, the marriage will be dissolved without delay.</p>",
+  "order": 5
+},
+{
+  "id": "fam_006",
+  "g": "Family Law",
+  "q": "How can the visitation schedule for the other parent be determined?",
+  "a": "<p>It may be fixed by a notarized agreement or by court, taking into account the child’s interests: days, hours, place of meetings, and video calls. If the order is violated, guardianship authorities may be involved.</p>",
+  "order": 6
+},
+{
+  "id": "fam_007",
+  "g": "Family Law",
+  "q": "Can the amount of child support be changed?",
+  "a": "<p>Yes, if the financial or family circumstances of the parties change, for example, the birth of other children, loss or increase of income, disability. A claim must be filed to change the method or amount of payment.</p>",
+  "order": 7
+},
+{
+  "id": "fam_008",
+  "g": "Family Law",
+  "q": "Can child support be recovered for an adult student?",
+  "a": "<p>Yes, if the child studies full-time and is in need, provided that inability to support oneself and actual necessity are proven. The court assesses the parties’ income and whether the expenses are justified.</p>",
+  "order": 8
+},
+{
+  "id": "fam_009",
+  "g": "Family Law",
+  "q": "What may be included in a prenuptial agreement?",
+  "a": "<p>It may regulate the property regime (separate/shared ownership), household expenses, allocation of debts, and consequences of divorce. It may not limit legal capacity, personal non-property rights, or the rights of children.</p>",
+  "order": 9
+},
+{
+  "id": "fam_010",
+  "g": "Family Law",
+  "q": "How can expenses for a child be recovered in addition to child support?",
+  "a": "<p>A claim may be filed for additional expenses such as medical treatment, education, or special needs, with supporting receipts and invoices. The court allocates the expenses in proportion to the parents’ means.</p>",
+  "order": 10
+},
+{
+  "id": "fam_011",
+  "g": "Family Law",
+  "q": "How is credit card debt divided upon divorce?",
+  "a": "<p>The debt is treated as joint if it arose in the interests of the family. If the spending was personal and unrelated to family needs, recognition of the debt as personal may be requested.</p>",
+  "order": 11
+},
+{
+  "id": "fam_012",
+  "g": "Family Law",
+  "q": "Can a former spouse be evicted from service housing?",
+  "a": "<p>Yes, if the right to use the housing is linked to the service of one spouse and the marriage has been dissolved. The court will assess the vulnerability of the person being evicted and whether alternative housing exists.</p>",
+  "order": 12
+},
+{
+  "id": "fam_013",
+  "g": "Family Law",
+  "q": "How can property be recognized as personal property in division proceedings?",
+  "a": "<p>It is necessary to prove that it was acquired before marriage, under a gratuitous transaction such as gift or inheritance, or with personal funds. It is also possible to claim the increase in value separately.</p>",
+  "order": 13
+},
+{
+  "id": "fam_014",
+  "g": "Family Law",
+  "q": "Can child support be recovered for a past period?",
+  "a": "<p>Yes, for up to 3 years, if it is proven that measures to obtain support were previously taken, such as applications, negotiations, or correspondence, and that the payer evaded payment.</p>",
+  "order": 14
+},
+{
+  "id": "nasl_004",
+  "g": "Inheritance Law",
+  "q": "Can inheritance be accepted фактически?",
+  "a": "<p>Yes, if actual possession, maintenance of the property, or payment of the deceased’s debts can be proven. After that, an application may be filed with a notary or a claim may be brought to recognize actual acceptance.</p>",
+  "order": 4
+},
+{
+  "id": "nasl_005",
+  "g": "Inheritance Law",
+  "q": "How can inheritance be formalized for an unfinished house?",
+  "a": "<p>Title documents for the land or unfinished construction object, a technical passport, and valuation are required. The proprietary right to the unfinished object is inherited.</p>",
+  "order": 5
+},
+{
+  "id": "nasl_006",
+  "g": "Inheritance Law",
+  "q": "Renunciation of inheritance in favor of another heir",
+  "a": "<p>This is possible before a notary within 6 months. A minor cannot renounce inheritance without permission of the guardianship authority; renunciation is unconditional and cannot be partial.</p>",
+  "order": 6
+},
+{
+  "id": "nasl_007",
+  "g": "Inheritance Law",
+  "q": "How can a will be challenged?",
+  "a": "<p>Grounds include incapacity, mistake, coercion, forgery, or violation of legal form. Medical documents, expert reports, and witnesses are needed. A claim is filed in court against the heirs.</p>",
+  "order": 7
+},
+{
+  "id": "nasl_008",
+  "g": "Inheritance Law",
+  "q": "Inclusion of bank deposits in the estate",
+  "a": "<p>Deposits form part of the estate unless a testamentary disposition has been made at the bank. The notary requests the information, and the heirs formalize their rights on the basis of the inheritance certificate.</p>",
+  "order": 8
+},
+{
+  "id": "nasl_009",
+  "g": "Inheritance Law",
+  "q": "How can inheritance be divided among several heirs?",
+  "a": "<p>By a notarized partition agreement or through court. The agreement determines shares and compensation. The court takes into account indivisible property and the parties’ interests.</p>",
+  "order": 9
+},
+{
+  "id": "nasl_010",
+  "g": "Inheritance Law",
+  "q": "What debts do heirs bear responsibility for?",
+  "a": "<p>Liability is limited to the value of the accepted inheritance. Creditors must present their claims within the period established by civil legislation.</p>",
+  "order": 10
+},
+{
+  "id": "nasl_011",
+  "g": "Inheritance Law",
+  "q": "The deadline was missed and the notary refused. What should be done?",
+  "a": "<p>File a claim for restoration of the term or obtain the consent of all heirs before a notary. The court evaluates the validity of the reasons and actual acceptance of the inheritance.</p>",
+  "order": 11
+},
+{
+  "id": "nasl_012",
+  "g": "Inheritance Law",
+  "q": "How can unregistered property be included in the inheritance?",
+  "a": "<p>Through a court claim for recognition of ownership by inheritance: the grounds for acquisition and possession must be proven, and obstacles to registration must be removed.</p>",
+  "order": 12
+},
+{
+  "id": "nasl_013",
+  "g": "Inheritance Law",
+  "q": "Appealing a notary’s refusal to issue an inheritance certificate",
+  "a": "<p>A court complaint challenging the notary’s actions or a lawsuit against heirs/third parties may be filed. Attach all requests and written refusals.</p>",
+  "order": 13
+},
+{
+  "id": "lab_003",
+  "g": "Labor Law",
+  "q": "How can unpaid vacation pay be recovered?",
+  "a": "<p>A written demand should first be sent to the employer, then a claim may be filed to recover the amounts due and compensation. Penalties are governed by labor law and the employment contract.</p>",
+  "order": 3
+},
+{
+  "id": "lab_004",
+  "g": "Labor Law",
+  "q": "Transfer to another position without consent",
+  "a": "<p>This is allowed only temporarily in exceptional cases provided by labor law and with preservation of salary. Permanent transfer is possible only by agreement of the parties.</p>",
+  "order": 4
+},
+{
+  "id": "lab_005",
+  "g": "Labor Law",
+  "q": "How can issuance of the employment record and certificates be obtained?",
+  "a": "<p>Send a written demand for issuance; if refused, file a complaint with the labor inspectorate and a court claim to compel issuance plus compensation for delay.</p>",
+  "order": 5
+},
+{
+  "id": "lab_006",
+  "g": "Labor Law",
+  "q": "Staff reduction: what guarantees are provided?",
+  "a": "<p>Advance notice, offer of vacant positions, and severance pay are required. Procedural violations may be grounds for reinstatement and recovery of payments.</p>",
+  "order": 6
+},
+{
+  "id": "lab_007",
+  "g": "Labor Law",
+  "q": "How can an employee protect themselves if working without an employment contract?",
+  "a": "<p>Collect evidence of actual labor relations, such as correspondence, passes, photos, and witnesses, and apply to court for recognition of the employment relationship and recovery of wages.</p>",
+  "order": 7
+},
+{
+  "id": "lab_008",
+  "g": "Labor Law",
+  "q": "Material liability of an employee",
+  "a": "<p>Full liability arises in cases of intent, shortage, disclosure of secrets, and other situations provided by labor law. The employer must prove the amount of damage and the employee’s fault.</p>",
+  "order": 8
+},
+{
+  "id": "lab_009",
+  "g": "Labor Law",
+  "q": "Challenging a disciplinary sanction",
+  "a": "<p>Check whether the deadlines and procedure were observed. If violations exist, file a claim to cancel the sanction, restore rights, and recover moral damages.</p>",
+  "order": 9
+},
+{
+  "id": "lab_010",
+  "g": "Labor Law",
+  "q": "Payment for overtime and night work",
+  "a": "<p>Such work must be paid at an increased rate under labor law and local acts. Overtime generally requires written consent, except for statutory exceptions, and night work is paid at a higher rate.</p>",
+  "order": 10
+},
+{
+  "id": "lab_011",
+  "g": "Labor Law",
+  "q": "Protection of pregnant employees and employees with children",
+  "a": "<p>Dismissal at the employer’s initiative is prohibited, except in case of liquidation, and business trips without consent are not allowed. Benefits and guarantees are provided by law.</p>",
+  "order": 11
+},
+{
+  "id": "lab_012",
+  "g": "Labor Law",
+  "q": "Foreign employee: permits and fines",
+  "a": "<p>The employer must obtain the required permits or quotas. Violations may lead to administrative liability and deportation.</p>",
+  "order": 12
+}
 ]
