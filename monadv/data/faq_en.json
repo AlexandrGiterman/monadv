@@ -290,7 +290,7 @@
 {
   "id": "nasl_004",
   "g": "Inheritance Law",
-  "q": "Can inheritance be accepted фактически?",
+  "q": "Can inheritance be accepted through actual conduct?",
   "a": "<p>Yes, if actual possession, maintenance of the property, or payment of the deceased’s debts can be proven. After that, an application may be filed with a notary or a claim may be brought to recognize actual acceptance.</p>",
   "order": 4
 },
@@ -425,6 +425,147 @@
   "g": "Labor Law",
   "q": "Foreign employee: permits and fines",
   "a": "<p>The employer must obtain the required permits or quotas. Violations may lead to administrative liability and deportation.</p>",
+  "order": 12
+},
+  ,
+{
+  "id": "house_003",
+  "g": "Housing Law",
+  "q": "How can ownership of an unauthorized building be recognized?",
+  "a": "<p>This is possible if construction regulations have been observed, the land rights exist, and no third-party rights are violated. A court claim must be filed together with technical documentation.</p>",
+  "order": 3
+},
+{
+  "id": "house_004",
+  "g": "Housing Law",
+  "q": "The neighbors are making noise — how can I protect my rights?",
+  "a": "<p>Record the violations through the police or official reports, and apply to the condominium association or akimat. In case of systematic violations, a court claim may be filed to stop the violations and recover moral damages.</p>",
+  "order": 4
+},
+{
+  "id": "house_005",
+  "g": "Housing Law",
+  "q": "If an apartment is flooded, who compensates the damage?",
+  "a": "<p>Liability rests with the owner of the source of flooding. Draw up a report, take photographs, obtain a damage assessment, and send a written claim; if refused, go to court.</p>",
+  "order": 5
+},
+{
+  "id": "house_006",
+  "g": "Housing Law",
+  "q": "How can a neighbor’s unlawful redevelopment be challenged?",
+  "a": "<p>File a complaint with the akimat or construction supervision authority and demand restoration to the original condition. If safety is threatened, a court claim for prohibition of use may be filed.</p>",
+  "order": 6
+},
+{
+  "id": "house_007",
+  "g": "Housing Law",
+  "q": "Registration at the place of residence and the right of use",
+  "a": "<p>Registration only confirms official record-keeping and does not create a right. The right of use arises from a lease agreement or ownership. Deregistration may be carried out through court.</p>",
+  "order": 7
+},
+{
+  "id": "house_008",
+  "g": "Housing Law",
+  "q": "How can debt for utility services be recovered?",
+  "a": "<p>First send a written demand, then file a court claim for the debt, penalties, and costs. For condominium bodies, restriction of services within the law and court proceedings are possible.</p>",
+  "order": 8
+},
+{
+  "id": "house_009",
+  "g": "Housing Law",
+  "q": "How can tariffs or decisions of a condominium association be challenged?",
+  "a": "<p>Minutes, estimates, calculations, and notices are required. Procedural violations may be grounds for declaring the decisions invalid.</p>",
+  "order": 9
+},
+{
+  "id": "house_010",
+  "g": "Housing Law",
+  "q": "How can a tenant be evicted for non-payment?",
+  "a": "<p>Terminate the lease unilaterally if the contract allows it, or through court, and recover the debt and penalties. The tenant’s belongings should be stored under an official inventory report.</p>",
+  "order": 10
+},
+{
+  "id": "house_011",
+  "g": "Housing Law",
+  "q": "How can an extension or veranda attached to a house be legalized?",
+  "a": "<p>Permit documents, urban planning conditions, and a technical passport are required. If it was built without authorization, legalization is carried out through the relevant procedure or court with expert examination.</p>",
+  "order": 11
+},
+{
+  "id": "house_012",
+  "g": "Housing Law",
+  "q": "Privatization of state housing",
+  "a": "<p>The grounds for allocation of the housing, period of residence, absence of debt, and consent of adult family members are verified. The set of documents is submitted to the authorized body.</p>",
+  "order": 12
+},
+{
+  "id": "crim_003",
+  "g": "Criminal Law",
+  "q": "What should be done if the police detain you?",
+  "a": "<p>Demand a lawyer, ask for your relatives to be notified, and require an explanation of your rights. Do not give explanations without a lawyer. Check the grounds and time limits of detention under the Criminal Procedure Code of Kazakhstan.</p>",
+  "order": 3
+},
+{
+  "id": "crim_004",
+  "g": "Criminal Law",
+  "q": "How can the actions of an investigator be appealed?",
+  "a": "<p>A complaint may be filed with the head of the authority, the prosecutor, or the court. Attach copies of motions and responses or refusals.</p>",
+  "order": 4
+},
+{
+  "id": "crim_005",
+  "g": "Criminal Law",
+  "q": "A preventive measure has been imposed — can it be changed?",
+  "a": "<p>Yes, if circumstances change, such as health condition, behavior, or bail. A motion to change the preventive measure or an appellate complaint may be filed.</p>",
+  "order": 5
+},
+{
+  "id": "crim_006",
+  "g": "Criminal Law",
+  "q": "Compensation to the victim in criminal proceedings",
+  "a": "<p>File a civil claim within the criminal case and attach evidence of expenses and moral harm. If necessary, a separate civil action may also be brought.</p>",
+  "order": 6
+},
+{
+  "id": "crim_007",
+  "g": "Criminal Law",
+  "q": "Can a criminal case be terminated due to reconciliation?",
+  "a": "<p>For certain offenses, reconciliation of the parties is possible if the damage has been compensated and guilt has been acknowledged. The decision is made by the investigative authority or the court.</p>",
+  "order": 7
+},
+{
+  "id": "crim_008",
+  "g": "Criminal Law",
+  "q": "What rights does a witness have during questioning?",
+  "a": "<p>A witness has the right not to testify against themselves or close relatives, to file motions, and to use the assistance of a lawyer. Refusal to testify or false testimony may entail liability within the limits of the law.</p>",
+  "order": 8
+},
+{
+  "id": "crim_009",
+  "g": "Criminal Law",
+  "q": "How can a judgment be appealed?",
+  "a": "<p>An appellate complaint is filed within the statutory period through the court of first instance. Grounds include incorrect factual conclusions, procedural violations, or incorrect legal qualification or punishment.</p>",
+  "order": 9
+},
+{
+  "id": "crim_010",
+  "g": "Criminal Law",
+  "q": "Search for and seizure of the accused person’s property",
+  "a": "<p>These measures are possible by order of the investigator or court to secure a civil claim and confiscation. Excessive or unfounded measures may be appealed.</p>",
+  "order": 10
+},
+{
+  "id": "crim_011",
+  "g": "Criminal Law",
+  "q": "Rehabilitation in case of acquittal",
+  "a": "<p>The person has the right to compensation for material and moral damage and restoration of labor and other rights. An application may be filed for compensation and an official apology from the state.</p>",
+  "order": 11
+},
+{
+  "id": "crim_012",
+  "g": "Criminal Law",
+  "q": "Access of defense counsel to the case materials",
+  "a": "<p>After the completion of the investigation is announced, defense counsel may review all materials, make extracts, and obtain copies. A refusal may be appealed to the prosecutor or the court.</p>",
   "order": 12
 }
 ]
