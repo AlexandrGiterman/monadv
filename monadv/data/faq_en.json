@@ -216,568 +216,564 @@
     "a": "<p>You may send lawyer’s requests or motions for disclosure of evidence. In case of refusal, a complaint or court application is possible.</p>",
     "order": 2
   },
-  ,
-{
-  "id": "fam_005",
-  "g": "Family Law",
-  "q": "Is divorce possible if one spouse is against it?",
-  "a": "<p>Yes. The court will dissolve the marriage if it finds that preservation of the family is impossible. The court may grant up to 3 months for reconciliation, but if the family has clearly broken down, the marriage will be dissolved without delay.</p>",
-  "order": 5
-},
-{
-  "id": "fam_006",
-  "g": "Family Law",
-  "q": "How can the visitation schedule for the other parent be determined?",
-  "a": "<p>It may be fixed by a notarized agreement or by court, taking into account the child’s interests: days, hours, place of meetings, and video calls. If the order is violated, guardianship authorities may be involved.</p>",
-  "order": 6
-},
-{
-  "id": "fam_007",
-  "g": "Family Law",
-  "q": "Can the amount of child support be changed?",
-  "a": "<p>Yes, if the financial or family circumstances of the parties change, for example, the birth of other children, loss or increase of income, disability. A claim must be filed to change the method or amount of payment.</p>",
-  "order": 7
-},
-{
-  "id": "fam_008",
-  "g": "Family Law",
-  "q": "Can child support be recovered for an adult student?",
-  "a": "<p>Yes, if the child studies full-time and is in need, provided that inability to support oneself and actual necessity are proven. The court assesses the parties’ income and whether the expenses are justified.</p>",
-  "order": 8
-},
-{
-  "id": "fam_009",
-  "g": "Family Law",
-  "q": "What may be included in a prenuptial agreement?",
-  "a": "<p>It may regulate the property regime (separate/shared ownership), household expenses, allocation of debts, and consequences of divorce. It may not limit legal capacity, personal non-property rights, or the rights of children.</p>",
-  "order": 9
-},
-{
-  "id": "fam_010",
-  "g": "Family Law",
-  "q": "How can expenses for a child be recovered in addition to child support?",
-  "a": "<p>A claim may be filed for additional expenses such as medical treatment, education, or special needs, with supporting receipts and invoices. The court allocates the expenses in proportion to the parents’ means.</p>",
-  "order": 10
-},
-{
-  "id": "fam_011",
-  "g": "Family Law",
-  "q": "How is credit card debt divided upon divorce?",
-  "a": "<p>The debt is treated as joint if it arose in the interests of the family. If the spending was personal and unrelated to family needs, recognition of the debt as personal may be requested.</p>",
-  "order": 11
-},
-{
-  "id": "fam_012",
-  "g": "Family Law",
-  "q": "Can a former spouse be evicted from service housing?",
-  "a": "<p>Yes, if the right to use the housing is linked to the service of one spouse and the marriage has been dissolved. The court will assess the vulnerability of the person being evicted and whether alternative housing exists.</p>",
-  "order": 12
-},
-{
-  "id": "fam_013",
-  "g": "Family Law",
-  "q": "How can property be recognized as personal property in division proceedings?",
-  "a": "<p>It is necessary to prove that it was acquired before marriage, under a gratuitous transaction such as gift or inheritance, or with personal funds. It is also possible to claim the increase in value separately.</p>",
-  "order": 13
-},
-{
-  "id": "fam_014",
-  "g": "Family Law",
-  "q": "Can child support be recovered for a past period?",
-  "a": "<p>Yes, for up to 3 years, if it is proven that measures to obtain support were previously taken, such as applications, negotiations, or correspondence, and that the payer evaded payment.</p>",
-  "order": 14
-},
-{
-  "id": "nasl_004",
-  "g": "Inheritance Law",
-  "q": "Can inheritance be accepted through actual conduct?",
-  "a": "<p>Yes, if actual possession, maintenance of the property, or payment of the deceased’s debts can be proven. After that, an application may be filed with a notary or a claim may be brought to recognize actual acceptance.</p>",
-  "order": 4
-},
-{
-  "id": "nasl_005",
-  "g": "Inheritance Law",
-  "q": "How can inheritance be formalized for an unfinished house?",
-  "a": "<p>Title documents for the land or unfinished construction object, a technical passport, and valuation are required. The proprietary right to the unfinished object is inherited.</p>",
-  "order": 5
-},
-{
-  "id": "nasl_006",
-  "g": "Inheritance Law",
-  "q": "Renunciation of inheritance in favor of another heir",
-  "a": "<p>This is possible before a notary within 6 months. A minor cannot renounce inheritance without permission of the guardianship authority; renunciation is unconditional and cannot be partial.</p>",
-  "order": 6
-},
-{
-  "id": "nasl_007",
-  "g": "Inheritance Law",
-  "q": "How can a will be challenged?",
-  "a": "<p>Grounds include incapacity, mistake, coercion, forgery, or violation of legal form. Medical documents, expert reports, and witnesses are needed. A claim is filed in court against the heirs.</p>",
-  "order": 7
-},
-{
-  "id": "nasl_008",
-  "g": "Inheritance Law",
-  "q": "Inclusion of bank deposits in the estate",
-  "a": "<p>Deposits form part of the estate unless a testamentary disposition has been made at the bank. The notary requests the information, and the heirs formalize their rights on the basis of the inheritance certificate.</p>",
-  "order": 8
-},
-{
-  "id": "nasl_009",
-  "g": "Inheritance Law",
-  "q": "How can inheritance be divided among several heirs?",
-  "a": "<p>By a notarized partition agreement or through court. The agreement determines shares and compensation. The court takes into account indivisible property and the parties’ interests.</p>",
-  "order": 9
-},
-{
-  "id": "nasl_010",
-  "g": "Inheritance Law",
-  "q": "What debts do heirs bear responsibility for?",
-  "a": "<p>Liability is limited to the value of the accepted inheritance. Creditors must present their claims within the period established by civil legislation.</p>",
-  "order": 10
-},
-{
-  "id": "nasl_011",
-  "g": "Inheritance Law",
-  "q": "The deadline was missed and the notary refused. What should be done?",
-  "a": "<p>File a claim for restoration of the term or obtain the consent of all heirs before a notary. The court evaluates the validity of the reasons and actual acceptance of the inheritance.</p>",
-  "order": 11
-},
-{
-  "id": "nasl_012",
-  "g": "Inheritance Law",
-  "q": "How can unregistered property be included in the inheritance?",
-  "a": "<p>Through a court claim for recognition of ownership by inheritance: the grounds for acquisition and possession must be proven, and obstacles to registration must be removed.</p>",
-  "order": 12
-},
-{
-  "id": "nasl_013",
-  "g": "Inheritance Law",
-  "q": "Appealing a notary’s refusal to issue an inheritance certificate",
-  "a": "<p>A court complaint challenging the notary’s actions or a lawsuit against heirs/third parties may be filed. Attach all requests and written refusals.</p>",
-  "order": 13
-},
-{
-  "id": "lab_003",
-  "g": "Labor Law",
-  "q": "How can unpaid vacation pay be recovered?",
-  "a": "<p>A written demand should first be sent to the employer, then a claim may be filed to recover the amounts due and compensation. Penalties are governed by labor law and the employment contract.</p>",
-  "order": 3
-},
-{
-  "id": "lab_004",
-  "g": "Labor Law",
-  "q": "Transfer to another position without consent",
-  "a": "<p>This is allowed only temporarily in exceptional cases provided by labor law and with preservation of salary. Permanent transfer is possible only by agreement of the parties.</p>",
-  "order": 4
-},
-{
-  "id": "lab_005",
-  "g": "Labor Law",
-  "q": "How can issuance of the employment record and certificates be obtained?",
-  "a": "<p>Send a written demand for issuance; if refused, file a complaint with the labor inspectorate and a court claim to compel issuance plus compensation for delay.</p>",
-  "order": 5
-},
-{
-  "id": "lab_006",
-  "g": "Labor Law",
-  "q": "Staff reduction: what guarantees are provided?",
-  "a": "<p>Advance notice, offer of vacant positions, and severance pay are required. Procedural violations may be grounds for reinstatement and recovery of payments.</p>",
-  "order": 6
-},
-{
-  "id": "lab_007",
-  "g": "Labor Law",
-  "q": "How can an employee protect themselves if working without an employment contract?",
-  "a": "<p>Collect evidence of actual labor relations, such as correspondence, passes, photos, and witnesses, and apply to court for recognition of the employment relationship and recovery of wages.</p>",
-  "order": 7
-},
-{
-  "id": "lab_008",
-  "g": "Labor Law",
-  "q": "Material liability of an employee",
-  "a": "<p>Full liability arises in cases of intent, shortage, disclosure of secrets, and other situations provided by labor law. The employer must prove the amount of damage and the employee’s fault.</p>",
-  "order": 8
-},
-{
-  "id": "lab_009",
-  "g": "Labor Law",
-  "q": "Challenging a disciplinary sanction",
-  "a": "<p>Check whether the deadlines and procedure were observed. If violations exist, file a claim to cancel the sanction, restore rights, and recover moral damages.</p>",
-  "order": 9
-},
-{
-  "id": "lab_010",
-  "g": "Labor Law",
-  "q": "Payment for overtime and night work",
-  "a": "<p>Such work must be paid at an increased rate under labor law and local acts. Overtime generally requires written consent, except for statutory exceptions, and night work is paid at a higher rate.</p>",
-  "order": 10
-},
-{
-  "id": "lab_011",
-  "g": "Labor Law",
-  "q": "Protection of pregnant employees and employees with children",
-  "a": "<p>Dismissal at the employer’s initiative is prohibited, except in case of liquidation, and business trips without consent are not allowed. Benefits and guarantees are provided by law.</p>",
-  "order": 11
-},
-{
-  "id": "lab_012",
-  "g": "Labor Law",
-  "q": "Foreign employee: permits and fines",
-  "a": "<p>The employer must obtain the required permits or quotas. Violations may lead to administrative liability and deportation.</p>",
-  "order": 12
-},
-  ,
-{
-  "id": "house_003",
-  "g": "Housing Law",
-  "q": "How can ownership of an unauthorized building be recognized?",
-  "a": "<p>This is possible if construction regulations have been observed, the land rights exist, and no third-party rights are violated. A court claim must be filed together with technical documentation.</p>",
-  "order": 3
-},
-{
-  "id": "house_004",
-  "g": "Housing Law",
-  "q": "The neighbors are making noise — how can I protect my rights?",
-  "a": "<p>Record the violations through the police or official reports, and apply to the condominium association or akimat. In case of systematic violations, a court claim may be filed to stop the violations and recover moral damages.</p>",
-  "order": 4
-},
-{
-  "id": "house_005",
-  "g": "Housing Law",
-  "q": "If an apartment is flooded, who compensates the damage?",
-  "a": "<p>Liability rests with the owner of the source of flooding. Draw up a report, take photographs, obtain a damage assessment, and send a written claim; if refused, go to court.</p>",
-  "order": 5
-},
-{
-  "id": "house_006",
-  "g": "Housing Law",
-  "q": "How can a neighbor’s unlawful redevelopment be challenged?",
-  "a": "<p>File a complaint with the akimat or construction supervision authority and demand restoration to the original condition. If safety is threatened, a court claim for prohibition of use may be filed.</p>",
-  "order": 6
-},
-{
-  "id": "house_007",
-  "g": "Housing Law",
-  "q": "Registration at the place of residence and the right of use",
-  "a": "<p>Registration only confirms official record-keeping and does not create a right. The right of use arises from a lease agreement or ownership. Deregistration may be carried out through court.</p>",
-  "order": 7
-},
-{
-  "id": "house_008",
-  "g": "Housing Law",
-  "q": "How can debt for utility services be recovered?",
-  "a": "<p>First send a written demand, then file a court claim for the debt, penalties, and costs. For condominium bodies, restriction of services within the law and court proceedings are possible.</p>",
-  "order": 8
-},
-{
-  "id": "house_009",
-  "g": "Housing Law",
-  "q": "How can tariffs or decisions of a condominium association be challenged?",
-  "a": "<p>Minutes, estimates, calculations, and notices are required. Procedural violations may be grounds for declaring the decisions invalid.</p>",
-  "order": 9
-},
-{
-  "id": "house_010",
-  "g": "Housing Law",
-  "q": "How can a tenant be evicted for non-payment?",
-  "a": "<p>Terminate the lease unilaterally if the contract allows it, or through court, and recover the debt and penalties. The tenant’s belongings should be stored under an official inventory report.</p>",
-  "order": 10
-},
-{
-  "id": "house_011",
-  "g": "Housing Law",
-  "q": "How can an extension or veranda attached to a house be legalized?",
-  "a": "<p>Permit documents, urban planning conditions, and a technical passport are required. If it was built without authorization, legalization is carried out through the relevant procedure or court with expert examination.</p>",
-  "order": 11
-},
-{
-  "id": "house_012",
-  "g": "Housing Law",
-  "q": "Privatization of state housing",
-  "a": "<p>The grounds for allocation of the housing, period of residence, absence of debt, and consent of adult family members are verified. The set of documents is submitted to the authorized body.</p>",
-  "order": 12
-},
-{
-  "id": "crim_003",
-  "g": "Criminal Law",
-  "q": "What should be done if the police detain you?",
-  "a": "<p>Demand a lawyer, ask for your relatives to be notified, and require an explanation of your rights. Do not give explanations without a lawyer. Check the grounds and time limits of detention under the Criminal Procedure Code of Kazakhstan.</p>",
-  "order": 3
-},
-{
-  "id": "crim_004",
-  "g": "Criminal Law",
-  "q": "How can the actions of an investigator be appealed?",
-  "a": "<p>A complaint may be filed with the head of the authority, the prosecutor, or the court. Attach copies of motions and responses or refusals.</p>",
-  "order": 4
-},
-{
-  "id": "crim_005",
-  "g": "Criminal Law",
-  "q": "A preventive measure has been imposed — can it be changed?",
-  "a": "<p>Yes, if circumstances change, such as health condition, behavior, or bail. A motion to change the preventive measure or an appellate complaint may be filed.</p>",
-  "order": 5
-},
-{
-  "id": "crim_006",
-  "g": "Criminal Law",
-  "q": "Compensation to the victim in criminal proceedings",
-  "a": "<p>File a civil claim within the criminal case and attach evidence of expenses and moral harm. If necessary, a separate civil action may also be brought.</p>",
-  "order": 6
-},
-{
-  "id": "crim_007",
-  "g": "Criminal Law",
-  "q": "Can a criminal case be terminated due to reconciliation?",
-  "a": "<p>For certain offenses, reconciliation of the parties is possible if the damage has been compensated and guilt has been acknowledged. The decision is made by the investigative authority or the court.</p>",
-  "order": 7
-},
-{
-  "id": "crim_008",
-  "g": "Criminal Law",
-  "q": "What rights does a witness have during questioning?",
-  "a": "<p>A witness has the right not to testify against themselves or close relatives, to file motions, and to use the assistance of a lawyer. Refusal to testify or false testimony may entail liability within the limits of the law.</p>",
-  "order": 8
-},
-{
-  "id": "crim_009",
-  "g": "Criminal Law",
-  "q": "How can a judgment be appealed?",
-  "a": "<p>An appellate complaint is filed within the statutory period through the court of first instance. Grounds include incorrect factual conclusions, procedural violations, or incorrect legal qualification or punishment.</p>",
-  "order": 9
-},
-{
-  "id": "crim_010",
-  "g": "Criminal Law",
-  "q": "Search for and seizure of the accused person’s property",
-  "a": "<p>These measures are possible by order of the investigator or court to secure a civil claim and confiscation. Excessive or unfounded measures may be appealed.</p>",
-  "order": 10
-},
-{
-  "id": "crim_011",
-  "g": "Criminal Law",
-  "q": "Rehabilitation in case of acquittal",
-  "a": "<p>The person has the right to compensation for material and moral damage and restoration of labor and other rights. An application may be filed for compensation and an official apology from the state.</p>",
-  "order": 11
-},
-{
-  "id": "crim_012",
-  "g": "Criminal Law",
-  "q": "Access of defense counsel to the case materials",
-  "a": "<p>After the completion of the investigation is announced, defense counsel may review all materials, make extracts, and obtain copies. A refusal may be appealed to the prosecutor or the court.</p>",
-  "order": 12
-},
-  ,
-{
-  "id": "fam_015",
-  "g": "Family Law",
-  "q": "Can paternity be challenged after divorce?",
-  "a": "<p>Yes, through the court at the defendant’s place of residence. A genetic examination is usually appointed. The limitation period is 1 year from the moment when the person learned about the discrepancy in the child’s origin.</p>",
-  "order": 15
-},
-{
-  "id": "fam_016",
-  "g": "Family Law",
-  "q": "How can paternity be established voluntarily?",
-  "a": "<p>A joint application is submitted to the Civil Registry Office. If one of the parents has died or has been declared legally incapable, the matter is resolved through court.</p>",
-  "order": 16
-},
-{
-  "id": "fam_017",
-  "g": "Family Law",
-  "q": "Can the court leave the child with the father?",
-  "a": "<p>Yes, if that is in the child’s best interests, including stability, care, and living conditions. The court considers the conclusion of the guardianship authority and the child’s opinion.</p>",
-  "order": 17
-},
-{
-  "id": "fam_018",
-  "g": "Family Law",
-  "q": "Can a parent’s contact with the child be restricted?",
-  "a": "<p>Yes, by court order if such communication harms the child’s physical or mental health. The restriction may be temporary or complete.</p>",
-  "order": 18
-},
-{
-  "id": "fam_019",
-  "g": "Family Law",
-  "q": "When is adoption possible?",
-  "a": "<p>It is possible with the consent of the parents, if they are alive, and if the adoptive parents have suitable conditions. The decision is made by the court. The guardianship authority provides an opinion on whether the adoption is appropriate.</p>",
-  "order": 19
-},
-{
-  "id": "fam_020",
-  "g": "Family Law",
-  "q": "Can adoption be cancelled?",
-  "a": "<p>Yes, in cases of cruel treatment, abuse of rights, or failure to fulfill parental duties. The decision is made by the court upon the application of interested persons.</p>",
-  "order": 20
-},
-{
-  "id": "nasl_014",
-  "g": "Inheritance Law",
-  "q": "What should be done if there are several heirs but only one will?",
-  "a": "<p>The heirs receive the property according to the will. If part of the property is not covered by the will, it is distributed according to law. If there is a dispute over shares, the matter should be taken to court.</p>",
-  "order": 14
-},
-{
-  "id": "nasl_015",
-  "g": "Inheritance Law",
-  "q": "How can inheritance of a vehicle be formalized?",
-  "a": "<p>The notary must be provided with the vehicle documents, valuation, and death certificate. After obtaining the inheritance certificate, the heir registers the vehicle with the Ministry of Internal Affairs.</p>",
-  "order": 15
-},
-{
-  "id": "nasl_016",
-  "g": "Inheritance Law",
-  "q": "Is it possible to renounce only part of an inheritance?",
-  "a": "<p>No, renunciation is possible only with respect to the entire inheritance. The exception is where inheritance arises on different grounds, such as by will and by law.</p>",
-  "order": 16
-},
-{
-  "id": "nasl_017",
-  "g": "Inheritance Law",
-  "q": "How can kinship with the deceased be proven?",
-  "a": "<p>Birth certificates, marriage certificates, and archive records may be used. If such documents are missing, an application to the court is required to establish the fact of family relationship.</p>",
-  "order": 17
-},
-{
-  "id": "nasl_018",
-  "g": "Inheritance Law",
-  "q": "What should be done if the inheritance property is located in different cities?",
-  "a": "<p>One inheritance case is opened at the deceased’s last place of residence. All other property is included in the same case, and the notary requests the necessary information.</p>",
-  "order": 18
-},
-{
-  "id": "lab_013",
-  "g": "Labor Law",
-  "q": "Business trips and daily allowances: payment standards",
-  "a": "<p>The minimum daily allowances are established by labor legislation and government regulations. They may be increased by internal acts. Failure to pay entails employer liability.</p>",
-  "order": 13
-},
-{
-  "id": "lab_014",
-  "g": "Labor Law",
-  "q": "How can secondary employment be formalized?",
-  "a": "<p>A separate employment contract is concluded and part-time working hours are established. The position, salary, and duration must be specified.</p>",
-  "order": 14
-},
-{
-  "id": "lab_015",
-  "g": "Labor Law",
-  "q": "What should be done in case of a workplace injury?",
-  "a": "<p>The employer must be notified immediately, a report is drawn up, and an investigation is conducted. The injured employee has the right to payment of treatment expenses, benefits, and compensation for damage.</p>",
-  "order": 15
-},
-{
-  "id": "lab_016",
-  "g": "Labor Law",
-  "q": "Is it possible to resign without working the notice period?",
-  "a": "<p>Yes, if the employer violates the contract terms, delays wages, transfers the employee without consent, or in other cases provided by labor law. The resignation letter should state the reason.</p>",
-  "order": 16
-},
-{
-  "id": "lab_017",
-  "g": "Labor Law",
-  "q": "How can workplace discrimination be proven?",
-  "a": "<p>Collect evidence such as correspondence, witness statements, and documents. Apply to the court or labor inspectorate. Discrimination is prohibited by labor law and the Constitution of Kazakhstan.</p>",
-  "order": 17
-},
-{
-  "id": "house_013",
-  "g": "Housing Law",
-  "q": "How can an apartment gift transfer be formalized?",
-  "a": "<p>A gift agreement is concluded before a notary and then registered through the public service center. No tax is charged when gifting between close relatives.</p>",
-  "order": 13
-},
-{
-  "id": "house_014",
-  "g": "Housing Law",
-  "q": "How can a person living in the premises without a contract be evicted?",
-  "a": "<p>If there is no contract, first send a notice, then file a claim for eviction as an unlawful occupant. Prepare evidence of ownership and violation of the rules of use.</p>",
-  "order": 14
-},
-{
-  "id": "house_015",
-  "g": "Housing Law",
-  "q": "How can shared ownership of housing be formalized?",
-  "a": "<p>An agreement on division or determination of shares is concluded, notarized, and registered through the public service center. The shares are fixed in the title documents.</p>",
-  "order": 15
-},
-{
-  "id": "crim_013",
-  "g": "Criminal Law",
-  "q": "What should be done if you are summoned for questioning?",
-  "a": "<p>Clarify your procedural status, whether witness or suspect, demand a lawyer, and do not sign the record without reading it. Motions and objections may be filed.</p>",
-  "order": 13
-},
-{
-  "id": "crim_014",
-  "g": "Criminal Law",
-  "q": "Can a criminal complaint be withdrawn?",
-  "a": "<p>In private prosecution cases, yes, until the court retires to the deliberation room. In public prosecution cases, the decision is made by the investigative authority.</p>",
-  "order": 14
-},
-{
-  "id": "cons_003",
-  "g": "Consumer Rights",
-  "q": "Where can a complaint about poor-quality services be filed?",
-  "a": "<p>With the consumer protection authority, the akimat, or the court. Collect the contract, receipts, and photographs. A written claim should first be sent to the service provider.</p>",
-  "order": 3
-},
-{
-  "id": "cons_004",
-  "g": "Consumer Rights",
-  "q": "Can goods be returned without a receipt?",
-  "a": "<p>Yes, if there is other evidence of purchase, such as a bank statement, witnesses, or packaging. The main point is to prove the purchase from that seller.</p>",
-  "order": 4
-},
-{
-  "id": "cons_005",
-  "g": "Consumer Rights",
-  "q": "What is the time limit for the seller to review a claim?",
-  "a": "<p>The seller must review it within 10 days from the date of receipt. If the deadline is violated, it is possible to go to court and demand a penalty for failure to satisfy the claim voluntarily.</p>",
-  "order": 5
-},
-{
-  "id": "arb_003",
-  "g": "Arbitration",
-  "q": "How can jurisdiction be chosen in a contract?",
-  "a": "<p>The parties may specify an arbitral tribunal or a specific arbitration institution. Such a clause is valid if accepted by both parties and if it does not violate mandatory legal norms.</p>",
-  "order": 3
-},
-{
-  "id": "arb_004",
-  "g": "Arbitration",
-  "q": "Enforcement of an arbitral award",
-  "a": "<p>The award is subject to recognition and enforcement through the state court. If enforcement is refused, an application for issuance of a writ of execution may be filed.</p>",
-  "order": 4
-},
-{
-  "id": "arb_005",
-  "g": "Arbitration",
-  "q": "Setting aside an arbitral award",
-  "a": "<p>This is possible through court in cases of procedural violations, excess of jurisdiction, or absence of an arbitration agreement. The limitation period is 3 months from the date the award was rendered.</p>",
-  "order": 5
-},
-{
-  "id": "exec_003",
-  "g": "Enforcement Proceedings",
-  "q": "How can a complaint against a bailiff be filed?",
-  "a": "<p>A complaint may be filed with the court or the chamber of private bailiffs. The complaint should specify the actions violating your rights and include supporting evidence.</p>",
-  "order": 3
-},
-{
-  "id": "exec_004",
-  "g": "Enforcement Proceedings",
-  "q": "How can enforcement proceedings be suspended?",
-  "a": "<p>An application may be filed with the court or bailiff stating the grounds, such as challenging the decision, illness, death of a party, or other statutory reasons.</p>",
-  "order": 4
-},
-{
-  "id": "exec_005",
-  "g": "Enforcement Proceedings",
-  "q": "Can seizure of property be appealed?",
-  "a": "<p>Yes, before the court at the place of enforcement. It is necessary to prove that the measure is disproportionate or that the property does not belong to the debtor.</p>",
-  "order": 5
-}
-
+  {
+    "id": "fam_005",
+    "g": "Family Law",
+    "q": "Is divorce possible if one spouse is against it?",
+    "a": "<p>Yes. The court will dissolve the marriage if it finds that preservation of the family is impossible. The court may grant up to 3 months for reconciliation, but if the family has clearly broken down, the marriage will be dissolved without delay.</p>",
+    "order": 5
+  },
+  {
+    "id": "fam_006",
+    "g": "Family Law",
+    "q": "How can the visitation schedule for the other parent be determined?",
+    "a": "<p>It may be fixed by a notarized agreement or by court, taking into account the child’s interests: days, hours, place of meetings, and video calls. If the order is violated, guardianship authorities may be involved.</p>",
+    "order": 6
+  },
+  {
+    "id": "fam_007",
+    "g": "Family Law",
+    "q": "Can the amount of child support be changed?",
+    "a": "<p>Yes, if the financial or family circumstances of the parties change, for example, the birth of other children, loss or increase of income, disability. A claim must be filed to change the method or amount of payment.</p>",
+    "order": 7
+  },
+  {
+    "id": "fam_008",
+    "g": "Family Law",
+    "q": "Can child support be recovered for an adult student?",
+    "a": "<p>Yes, if the child studies full-time and is in need, provided that inability to support oneself and actual necessity are proven. The court assesses the parties’ income and whether the expenses are justified.</p>",
+    "order": 8
+  },
+  {
+    "id": "fam_009",
+    "g": "Family Law",
+    "q": "What may be included in a prenuptial agreement?",
+    "a": "<p>It may regulate the property regime (separate/shared ownership), household expenses, allocation of debts, and consequences of divorce. It may not limit legal capacity, personal non-property rights, or the rights of children.</p>",
+    "order": 9
+  },
+  {
+    "id": "fam_010",
+    "g": "Family Law",
+    "q": "How can expenses for a child be recovered in addition to child support?",
+    "a": "<p>A claim may be filed for additional expenses such as medical treatment, education, or special needs, with supporting receipts and invoices. The court allocates the expenses in proportion to the parents’ means.</p>",
+    "order": 10
+  },
+  {
+    "id": "fam_011",
+    "g": "Family Law",
+    "q": "How is credit card debt divided upon divorce?",
+    "a": "<p>The debt is treated as joint if it arose in the interests of the family. If the spending was personal and unrelated to family needs, recognition of the debt as personal may be requested.</p>",
+    "order": 11
+  },
+  {
+    "id": "fam_012",
+    "g": "Family Law",
+    "q": "Can a former spouse be evicted from service housing?",
+    "a": "<p>Yes, if the right to use the housing is linked to the service of one spouse and the marriage has been dissolved. The court will assess the vulnerability of the person being evicted and whether alternative housing exists.</p>",
+    "order": 12
+  },
+  {
+    "id": "fam_013",
+    "g": "Family Law",
+    "q": "How can property be recognized as personal property in division proceedings?",
+    "a": "<p>It is necessary to prove that it was acquired before marriage, under a gratuitous transaction such as gift or inheritance, or with personal funds. It is also possible to claim the increase in value separately.</p>",
+    "order": 13
+  },
+  {
+    "id": "fam_014",
+    "g": "Family Law",
+    "q": "Can child support be recovered for a past period?",
+    "a": "<p>Yes, for up to 3 years, if it is proven that measures to obtain support were previously taken, such as applications, negotiations, or correspondence, and that the payer evaded payment.</p>",
+    "order": 14
+  },
+  {
+    "id": "nasl_004",
+    "g": "Inheritance Law",
+    "q": "Can inheritance be accepted through actual conduct?",
+    "a": "<p>Yes, if actual possession, maintenance of the property, or payment of the deceased’s debts can be proven. After that, an application may be filed with a notary or a claim may be brought to recognize actual acceptance.</p>",
+    "order": 4
+  },
+  {
+    "id": "nasl_005",
+    "g": "Inheritance Law",
+    "q": "How can inheritance be formalized for an unfinished house?",
+    "a": "<p>Title documents for the land or unfinished construction object, a technical passport, and valuation are required. The proprietary right to the unfinished object is inherited.</p>",
+    "order": 5
+  },
+  {
+    "id": "nasl_006",
+    "g": "Inheritance Law",
+    "q": "Renunciation of inheritance in favor of another heir",
+    "a": "<p>This is possible before a notary within 6 months. A minor cannot renounce inheritance without permission of the guardianship authority; renunciation is unconditional and cannot be partial.</p>",
+    "order": 6
+  },
+  {
+    "id": "nasl_007",
+    "g": "Inheritance Law",
+    "q": "How can a will be challenged?",
+    "a": "<p>Grounds include incapacity, mistake, coercion, forgery, or violation of legal form. Medical documents, expert reports, and witnesses are needed. A claim is filed in court against the heirs.</p>",
+    "order": 7
+  },
+  {
+    "id": "nasl_008",
+    "g": "Inheritance Law",
+    "q": "Inclusion of bank deposits in the estate",
+    "a": "<p>Deposits form part of the estate unless a testamentary disposition has been made at the bank. The notary requests the information, and the heirs formalize their rights on the basis of the inheritance certificate.</p>",
+    "order": 8
+  },
+  {
+    "id": "nasl_009",
+    "g": "Inheritance Law",
+    "q": "How can inheritance be divided among several heirs?",
+    "a": "<p>By a notarized partition agreement or through court. The agreement determines shares and compensation. The court takes into account indivisible property and the parties’ interests.</p>",
+    "order": 9
+  },
+  {
+    "id": "nasl_010",
+    "g": "Inheritance Law",
+    "q": "What debts do heirs bear responsibility for?",
+    "a": "<p>Liability is limited to the value of the accepted inheritance. Creditors must present their claims within the period established by civil legislation.</p>",
+    "order": 10
+  },
+  {
+    "id": "nasl_011",
+    "g": "Inheritance Law",
+    "q": "The deadline was missed and the notary refused. What should be done?",
+    "a": "<p>File a claim for restoration of the term or obtain the consent of all heirs before a notary. The court evaluates the validity of the reasons and actual acceptance of the inheritance.</p>",
+    "order": 11
+  },
+  {
+    "id": "nasl_012",
+    "g": "Inheritance Law",
+    "q": "How can unregistered property be included in the inheritance?",
+    "a": "<p>Through a court claim for recognition of ownership by inheritance: the grounds for acquisition and possession must be proven, and obstacles to registration must be removed.</p>",
+    "order": 12
+  },
+  {
+    "id": "nasl_013",
+    "g": "Inheritance Law",
+    "q": "Appealing a notary’s refusal to issue an inheritance certificate",
+    "a": "<p>A court complaint challenging the notary’s actions or a lawsuit against heirs/third parties may be filed. Attach all requests and written refusals.</p>",
+    "order": 13
+  },
+  {
+    "id": "lab_003",
+    "g": "Labor Law",
+    "q": "How can unpaid vacation pay be recovered?",
+    "a": "<p>A written demand should first be sent to the employer, then a claim may be filed to recover the amounts due and compensation. Penalties are governed by labor law and the employment contract.</p>",
+    "order": 3
+  },
+  {
+    "id": "lab_004",
+    "g": "Labor Law",
+    "q": "Transfer to another position without consent",
+    "a": "<p>This is allowed only temporarily in exceptional cases provided by labor law and with preservation of salary. Permanent transfer is possible only by agreement of the parties.</p>",
+    "order": 4
+  },
+  {
+    "id": "lab_005",
+    "g": "Labor Law",
+    "q": "How can issuance of the employment record and certificates be obtained?",
+    "a": "<p>Send a written demand for issuance; if refused, file a complaint with the labor inspectorate and a court claim to compel issuance plus compensation for delay.</p>",
+    "order": 5
+  },
+  {
+    "id": "lab_006",
+    "g": "Labor Law",
+    "q": "Staff reduction: what guarantees are provided?",
+    "a": "<p>Advance notice, offer of vacant positions, and severance pay are required. Procedural violations may be grounds for reinstatement and recovery of payments.</p>",
+    "order": 6
+  },
+  {
+    "id": "lab_007",
+    "g": "Labor Law",
+    "q": "How can an employee protect themselves if working without an employment contract?",
+    "a": "<p>Collect evidence of actual labor relations, such as correspondence, passes, photos, and witnesses, and apply to court for recognition of the employment relationship and recovery of wages.</p>",
+    "order": 7
+  },
+  {
+    "id": "lab_008",
+    "g": "Labor Law",
+    "q": "Material liability of an employee",
+    "a": "<p>Full liability arises in cases of intent, shortage, disclosure of secrets, and other situations provided by labor law. The employer must prove the amount of damage and the employee’s fault.</p>",
+    "order": 8
+  },
+  {
+    "id": "lab_009",
+    "g": "Labor Law",
+    "q": "Challenging a disciplinary sanction",
+    "a": "<p>Check whether the deadlines and procedure were observed. If violations exist, file a claim to cancel the sanction, restore rights, and recover moral damages.</p>",
+    "order": 9
+  },
+  {
+    "id": "lab_010",
+    "g": "Labor Law",
+    "q": "Payment for overtime and night work",
+    "a": "<p>Such work must be paid at an increased rate under labor law and local acts. Overtime generally requires written consent, except for statutory exceptions, and night work is paid at a higher rate.</p>",
+    "order": 10
+  },
+  {
+    "id": "lab_011",
+    "g": "Labor Law",
+    "q": "Protection of pregnant employees and employees with children",
+    "a": "<p>Dismissal at the employer’s initiative is prohibited, except in case of liquidation, and business trips without consent are not allowed. Benefits and guarantees are provided by law.</p>",
+    "order": 11
+  },
+  {
+    "id": "lab_012",
+    "g": "Labor Law",
+    "q": "Foreign employee: permits and fines",
+    "a": "<p>The employer must obtain the required permits or quotas. Violations may lead to administrative liability and deportation.</p>",
+    "order": 12
+  },
+  {
+    "id": "house_003",
+    "g": "Housing Law",
+    "q": "How can ownership of an unauthorized building be recognized?",
+    "a": "<p>This is possible if construction regulations have been observed, the land rights exist, and no third-party rights are violated. A court claim must be filed together with technical documentation.</p>",
+    "order": 3
+  },
+  {
+    "id": "house_004",
+    "g": "Housing Law",
+    "q": "The neighbors are making noise — how can I protect my rights?",
+    "a": "<p>Record the violations through the police or official reports, and apply to the condominium association or akimat. In case of systematic violations, a court claim may be filed to stop the violations and recover moral damages.</p>",
+    "order": 4
+  },
+  {
+    "id": "house_005",
+    "g": "Housing Law",
+    "q": "If an apartment is flooded, who compensates the damage?",
+    "a": "<p>Liability rests with the owner of the source of flooding. Draw up a report, take photographs, obtain a damage assessment, and send a written claim; if refused, go to court.</p>",
+    "order": 5
+  },
+  {
+    "id": "house_006",
+    "g": "Housing Law",
+    "q": "How can a neighbor’s unlawful redevelopment be challenged?",
+    "a": "<p>File a complaint with the akimat or construction supervision authority and demand restoration to the original condition. If safety is threatened, a court claim for prohibition of use may be filed.</p>",
+    "order": 6
+  },
+  {
+    "id": "house_007",
+    "g": "Housing Law",
+    "q": "Registration at the place of residence and the right of use",
+    "a": "<p>Registration only confirms official record-keeping and does not create a right. The right of use arises from a lease agreement or ownership. Deregistration may be carried out through court.</p>",
+    "order": 7
+  },
+  {
+    "id": "house_008",
+    "g": "Housing Law",
+    "q": "How can debt for utility services be recovered?",
+    "a": "<p>First send a written demand, then file a court claim for the debt, penalties, and costs. For condominium bodies, restriction of services within the law and court proceedings are possible.</p>",
+    "order": 8
+  },
+  {
+    "id": "house_009",
+    "g": "Housing Law",
+    "q": "How can tariffs or decisions of a condominium association be challenged?",
+    "a": "<p>Minutes, estimates, calculations, and notices are required. Procedural violations may be grounds for declaring the decisions invalid.</p>",
+    "order": 9
+  },
+  {
+    "id": "house_010",
+    "g": "Housing Law",
+    "q": "How can a tenant be evicted for non-payment?",
+    "a": "<p>Terminate the lease unilaterally if the contract allows it, or through court, and recover the debt and penalties. The tenant’s belongings should be stored under an official inventory report.</p>",
+    "order": 10
+  },
+  {
+    "id": "house_011",
+    "g": "Housing Law",
+    "q": "How can an extension or veranda attached to a house be legalized?",
+    "a": "<p>Permit documents, urban planning conditions, and a technical passport are required. If it was built without authorization, legalization is carried out through the relevant procedure or court with expert examination.</p>",
+    "order": 11
+  },
+  {
+    "id": "house_012",
+    "g": "Housing Law",
+    "q": "Privatization of state housing",
+    "a": "<p>The grounds for allocation of the housing, period of residence, absence of debt, and consent of adult family members are verified. The set of documents is submitted to the authorized body.</p>",
+    "order": 12
+  },
+  {
+    "id": "crim_003",
+    "g": "Criminal Law",
+    "q": "What should be done if the police detain you?",
+    "a": "<p>Demand a lawyer, ask for your relatives to be notified, and require an explanation of your rights. Do not give explanations without a lawyer. Check the grounds and time limits of detention under the Criminal Procedure Code of Kazakhstan.</p>",
+    "order": 3
+  },
+  {
+    "id": "crim_004",
+    "g": "Criminal Law",
+    "q": "How can the actions of an investigator be appealed?",
+    "a": "<p>A complaint may be filed with the head of the authority, the prosecutor, or the court. Attach copies of motions and responses or refusals.</p>",
+    "order": 4
+  },
+  {
+    "id": "crim_005",
+    "g": "Criminal Law",
+    "q": "A preventive measure has been imposed — can it be changed?",
+    "a": "<p>Yes, if circumstances change, such as health condition, behavior, or bail. A motion to change the preventive measure or an appellate complaint may be filed.</p>",
+    "order": 5
+  },
+  {
+    "id": "crim_006",
+    "g": "Criminal Law",
+    "q": "Compensation to the victim in criminal proceedings",
+    "a": "<p>File a civil claim within the criminal case and attach evidence of expenses and moral harm. If necessary, a separate civil action may also be brought.</p>",
+    "order": 6
+  },
+  {
+    "id": "crim_007",
+    "g": "Criminal Law",
+    "q": "Can a criminal case be terminated due to reconciliation?",
+    "a": "<p>For certain offenses, reconciliation of the parties is possible if the damage has been compensated and guilt has been acknowledged. The decision is made by the investigative authority or the court.</p>",
+    "order": 7
+  },
+  {
+    "id": "crim_008",
+    "g": "Criminal Law",
+    "q": "What rights does a witness have during questioning?",
+    "a": "<p>A witness has the right not to testify against themselves or close relatives, to file motions, and to use the assistance of a lawyer. Refusal to testify or false testimony may entail liability within the limits of the law.</p>",
+    "order": 8
+  },
+  {
+    "id": "crim_009",
+    "g": "Criminal Law",
+    "q": "How can a judgment be appealed?",
+    "a": "<p>An appellate complaint is filed within the statutory period through the court of first instance. Grounds include incorrect factual conclusions, procedural violations, or incorrect legal qualification or punishment.</p>",
+    "order": 9
+  },
+  {
+    "id": "crim_010",
+    "g": "Criminal Law",
+    "q": "Search for and seizure of the accused person’s property",
+    "a": "<p>These measures are possible by order of the investigator or court to secure a civil claim and confiscation. Excessive or unfounded measures may be appealed.</p>",
+    "order": 10
+  },
+  {
+    "id": "crim_011",
+    "g": "Criminal Law",
+    "q": "Rehabilitation in case of acquittal",
+    "a": "<p>The person has the right to compensation for material and moral damage and restoration of labor and other rights. An application may be filed for compensation and an official apology from the state.</p>",
+    "order": 11
+  },
+  {
+    "id": "crim_012",
+    "g": "Criminal Law",
+    "q": "Access of defense counsel to the case materials",
+    "a": "<p>After the completion of the investigation is announced, defense counsel may review all materials, make extracts, and obtain copies. A refusal may be appealed to the prosecutor or the court.</p>",
+    "order": 12
+  },
+  {
+    "id": "fam_015",
+    "g": "Family Law",
+    "q": "Can paternity be challenged after divorce?",
+    "a": "<p>Yes, through the court at the defendant’s place of residence. A genetic examination is usually appointed. The limitation period is 1 year from the moment when the person learned about the discrepancy in the child’s origin.</p>",
+    "order": 15
+  },
+  {
+    "id": "fam_016",
+    "g": "Family Law",
+    "q": "How can paternity be established voluntarily?",
+    "a": "<p>A joint application is submitted to the Civil Registry Office. If one of the parents has died or has been declared legally incapable, the matter is resolved through court.</p>",
+    "order": 16
+  },
+  {
+    "id": "fam_017",
+    "g": "Family Law",
+    "q": "Can the court leave the child with the father?",
+    "a": "<p>Yes, if that is in the child’s best interests, including stability, care, and living conditions. The court considers the conclusion of the guardianship authority and the child’s opinion.</p>",
+    "order": 17
+  },
+  {
+    "id": "fam_018",
+    "g": "Family Law",
+    "q": "Can a parent’s contact with the child be restricted?",
+    "a": "<p>Yes, by court order if such communication harms the child’s physical or mental health. The restriction may be temporary or complete.</p>",
+    "order": 18
+  },
+  {
+    "id": "fam_019",
+    "g": "Family Law",
+    "q": "When is adoption possible?",
+    "a": "<p>It is possible with the consent of the parents, if they are alive, and if the adoptive parents have suitable conditions. The decision is made by the court. The guardianship authority provides an opinion on whether the adoption is appropriate.</p>",
+    "order": 19
+  },
+  {
+    "id": "fam_020",
+    "g": "Family Law",
+    "q": "Can adoption be cancelled?",
+    "a": "<p>Yes, in cases of cruel treatment, abuse of rights, or failure to fulfill parental duties. The decision is made by the court upon the application of interested persons.</p>",
+    "order": 20
+  },
+  {
+    "id": "nasl_014",
+    "g": "Inheritance Law",
+    "q": "What should be done if there are several heirs but only one will?",
+    "a": "<p>The heirs receive the property according to the will. If part of the property is not covered by the will, it is distributed according to law. If there is a dispute over shares, the matter should be taken to court.</p>",
+    "order": 14
+  },
+  {
+    "id": "nasl_015",
+    "g": "Inheritance Law",
+    "q": "How can inheritance of a vehicle be formalized?",
+    "a": "<p>The notary must be provided with the vehicle documents, valuation, and death certificate. After obtaining the inheritance certificate, the heir registers the vehicle with the Ministry of Internal Affairs.</p>",
+    "order": 15
+  },
+  {
+    "id": "nasl_016",
+    "g": "Inheritance Law",
+    "q": "Is it possible to renounce only part of an inheritance?",
+    "a": "<p>No, renunciation is possible only with respect to the entire inheritance. The exception is where inheritance arises on different grounds, such as by will and by law.</p>",
+    "order": 16
+  },
+  {
+    "id": "nasl_017",
+    "g": "Inheritance Law",
+    "q": "How can kinship with the deceased be proven?",
+    "a": "<p>Birth certificates, marriage certificates, and archive records may be used. If such documents are missing, an application to the court is required to establish the fact of family relationship.</p>",
+    "order": 17
+  },
+  {
+    "id": "nasl_018",
+    "g": "Inheritance Law",
+    "q": "What should be done if the inheritance property is located in different cities?",
+    "a": "<p>One inheritance case is opened at the deceased’s last place of residence. All other property is included in the same case, and the notary requests the necessary information.</p>",
+    "order": 18
+  },
+  {
+    "id": "lab_013",
+    "g": "Labor Law",
+    "q": "Business trips and daily allowances: payment standards",
+    "a": "<p>The minimum daily allowances are established by labor legislation and government regulations. They may be increased by internal acts. Failure to pay entails employer liability.</p>",
+    "order": 13
+  },
+  {
+    "id": "lab_014",
+    "g": "Labor Law",
+    "q": "How can secondary employment be formalized?",
+    "a": "<p>A separate employment contract is concluded and part-time working hours are established. The position, salary, and duration must be specified.</p>",
+    "order": 14
+  },
+  {
+    "id": "lab_015",
+    "g": "Labor Law",
+    "q": "What should be done in case of a workplace injury?",
+    "a": "<p>The employer must be notified immediately, a report is drawn up, and an investigation is conducted. The injured employee has the right to payment of treatment expenses, benefits, and compensation for damage.</p>",
+    "order": 15
+  },
+  {
+    "id": "lab_016",
+    "g": "Labor Law",
+    "q": "Is it possible to resign without working the notice period?",
+    "a": "<p>Yes, if the employer violates the contract terms, delays wages, transfers the employee without consent, or in other cases provided by labor law. The resignation letter should state the reason.</p>",
+    "order": 16
+  },
+  {
+    "id": "lab_017",
+    "g": "Labor Law",
+    "q": "How can workplace discrimination be proven?",
+    "a": "<p>Collect evidence such as correspondence, witness statements, and documents. Apply to the court or labor inspectorate. Discrimination is prohibited by labor law and the Constitution of Kazakhstan.</p>",
+    "order": 17
+  },
+  {
+    "id": "house_013",
+    "g": "Housing Law",
+    "q": "How can an apartment gift transfer be formalized?",
+    "a": "<p>A gift agreement is concluded before a notary and then registered through the public service center. No tax is charged when gifting between close relatives.</p>",
+    "order": 13
+  },
+  {
+    "id": "house_014",
+    "g": "Housing Law",
+    "q": "How can a person living in the premises without a contract be evicted?",
+    "a": "<p>If there is no contract, first send a notice, then file a claim for eviction as an unlawful occupant. Prepare evidence of ownership and violation of the rules of use.</p>",
+    "order": 14
+  },
+  {
+    "id": "house_015",
+    "g": "Housing Law",
+    "q": "How can shared ownership of housing be formalized?",
+    "a": "<p>An agreement on division or determination of shares is concluded, notarized, and registered through the public service center. The shares are fixed in the title documents.</p>",
+    "order": 15
+  },
+  {
+    "id": "crim_013",
+    "g": "Criminal Law",
+    "q": "What should be done if you are summoned for questioning?",
+    "a": "<p>Clarify your procedural status, whether witness or suspect, demand a lawyer, and do not sign the record without reading it. Motions and objections may be filed.</p>",
+    "order": 13
+  },
+  {
+    "id": "crim_014",
+    "g": "Criminal Law",
+    "q": "Can a criminal complaint be withdrawn?",
+    "a": "<p>In private prosecution cases, yes, until the court retires to the deliberation room. In public prosecution cases, the decision is made by the investigative authority.</p>",
+    "order": 14
+  },
+  {
+    "id": "cons_003",
+    "g": "Consumer Rights",
+    "q": "Where can a complaint about poor-quality services be filed?",
+    "a": "<p>With the consumer protection authority, the akimat, or the court. Collect the contract, receipts, and photographs. A written claim should first be sent to the service provider.</p>",
+    "order": 3
+  },
+  {
+    "id": "cons_004",
+    "g": "Consumer Rights",
+    "q": "Can goods be returned without a receipt?",
+    "a": "<p>Yes, if there is other evidence of purchase, such as a bank statement, witnesses, or packaging. The main point is to prove the purchase from that seller.</p>",
+    "order": 4
+  },
+  {
+    "id": "cons_005",
+    "g": "Consumer Rights",
+    "q": "What is the time limit for the seller to review a claim?",
+    "a": "<p>The seller must review it within 10 days from the date of receipt. If the deadline is violated, it is possible to go to court and demand a penalty for failure to satisfy the claim voluntarily.</p>",
+    "order": 5
+  },
+  {
+    "id": "arb_003",
+    "g": "Arbitration",
+    "q": "How can jurisdiction be chosen in a contract?",
+    "a": "<p>The parties may specify an arbitral tribunal or a specific arbitration institution. Such a clause is valid if accepted by both parties and if it does not violate mandatory legal norms.</p>",
+    "order": 3
+  },
+  {
+    "id": "arb_004",
+    "g": "Arbitration",
+    "q": "Enforcement of an arbitral award",
+    "a": "<p>The award is subject to recognition and enforcement through the state court. If enforcement is refused, an application for issuance of a writ of execution may be filed.</p>",
+    "order": 4
+  },
+  {
+    "id": "arb_005",
+    "g": "Arbitration",
+    "q": "Setting aside an arbitral award",
+    "a": "<p>This is possible through court in cases of procedural violations, excess of jurisdiction, or absence of an arbitration agreement. The limitation period is 3 months from the date the award was rendered.</p>",
+    "order": 5
+  },
+  {
+    "id": "exec_003",
+    "g": "Enforcement Proceedings",
+    "q": "How can a complaint against a bailiff be filed?",
+    "a": "<p>A complaint may be filed with the court or the chamber of private bailiffs. The complaint should specify the actions violating your rights and include supporting evidence.</p>",
+    "order": 3
+  },
+  {
+    "id": "exec_004",
+    "g": "Enforcement Proceedings",
+    "q": "How can enforcement proceedings be suspended?",
+    "a": "<p>An application may be filed with the court or bailiff stating the grounds, such as challenging the decision, illness, death of a party, or other statutory reasons.</p>",
+    "order": 4
+  },
+  {
+    "id": "exec_005",
+    "g": "Enforcement Proceedings",
+    "q": "Can seizure of property be appealed?",
+    "a": "<p>Yes, before the court at the place of enforcement. It is necessary to prove that the measure is disproportionate or that the property does not belong to the debtor.</p>",
+    "order": 5
+  }
 ]
